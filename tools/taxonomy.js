@@ -12,6 +12,10 @@ var GENRE_TO_MOOD = {
   27: 'miedito', 53: 'miedito'        // Terror, Suspenso
 };
 
+// Respaldo: títulos cuyo único género es Animación/Familia/Kids/Música/Reality/Talk (muchos cortos
+// y especiales) reciben este mood en vez de descartarse.
+var FALLBACK_MOOD = { 16: 'reir', 10751: 'reir', 10762: 'reir', 10764: 'reir', 10767: 'reir', 10402: 'emocionarme' };
+
 // Géneros que se consultan en /discover para cubrir cada mood.
 var MOOD_DISCOVER = {
   movie: { reir: '35', emocionarme: '18|10749', adrenalina: '28|12|80', pensar: '9648|878|99', miedito: '27|53' },
@@ -65,6 +69,7 @@ var KEYWORD_ES = {
 module.exports = {
   GENRE_TO_MOOD: GENRE_TO_MOOD,
   MOOD_DISCOVER: MOOD_DISCOVER,
+  FALLBACK_MOOD: FALLBACK_MOOD,
   MOOD_KEYWORD_QUERIES: MOOD_KEYWORD_QUERIES,
   KEYWORD_TO_MOOD: KEYWORD_TO_MOOD,
   LOW_ATTENTION: LOW_ATTENTION,

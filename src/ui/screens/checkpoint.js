@@ -33,6 +33,12 @@
       state.covers.length = step.c + 1;
       state.feedback.length = step.c; // se reescribe al contestar
 
+      // Sin ninguna portada que respete tipo/duración/familia: no hay nada que preguntar, se salta.
+      if (!covers.length) {
+        ctx.later(ctx.next, 0);
+        return { el: h('div', 'screen screen--night'), focus: null, onBack: function () {} };
+      }
+
       function answer(pickedId) {
         state.feedback[step.c] = { shown: shownIds, picked: pickedId };
         ctx.next();

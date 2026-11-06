@@ -122,7 +122,7 @@ test('desempate estable por título', function () {
 
 // ---------- fallback ----------
 console.log('Fallback');
-test('relaja Q6 -> Q3 y al final da un margen acotado de duración cuando hay < 3', function () {
+test('relaja Q6 -> Q3 cuando hay < 3, pero nunca la duración', function () {
   // Solo existe 1 serie "nueva y de atención alta y corta" en netflix: debe relajar hasta tener ≥ 3.
   var cat = [
     mk({ id: 'f1', type: 'series', dur: 30, attention: 'high', year: 2024 }),
@@ -131,8 +131,7 @@ test('relaja Q6 -> Q3 y al final da un margen acotado de duración cuando hay < 
     mk({ id: 'f4', type: 'movie', dur: 30, attention: 'high', year: 2024 })
   ];
   var r = R.recommend({ type: 'series', time: 'short', attention: 'high', novelty: 'new' }, ['netflix'], cat);
-  assert.strictEqual(r.relaxLevel.platforms, 5);
-  assert.deepStrictEqual(ids(r.platforms).sort(), ['f1', 'f2', 'f3']);
+  assert.deepStrictEqual(ids(r.platforms).sort(), ['f1', 'f2'], 'f3 dura 60 min: no cabe en "Un ratito"');
   assert.strictEqual(r.platforms[0].id, 'f1', 'el que cumple todo va primero');
 });
 test('el ánimo de Q4 se respeta mientras haya al menos 3 títulos con ese ánimo', function () {
@@ -152,10 +151,10 @@ test('"Algo recién salido" no se rellena con títulos viejos (ni "clásico" con
   var c = R.recommend({ type: 'movie', time: 'any', mood: 'reir', novelty: 'classic' }, ['netflix'], cat);
   c.platforms.forEach(function (it) { assert.strictEqual(it.year, 1999, it.id); });
 });
-test('la duración nunca se relaja más allá del margen (normal <= 150, ratito <= 100)', function () {
+test('la duración es filtro duro (normal <= 135, ratito <= 45), aunque queden menos de 3', function () {
   var cat = [mk({ id: 'l1', dur: 200 }), mk({ id: 'l2', dur: 180 }), mk({ id: 'n1', dur: 120 }), mk({ id: 'n2', dur: 149 })];
   var r = R.recommend({ type: 'movie', time: 'normal', mood: 'reir' }, ['netflix'], cat);
-  assert.deepStrictEqual(ids(r.platforms).sort(), ['n1', 'n2']);
+  assert.deepStrictEqual(ids(r.platforms), ['n1']);
   var r2 = R.recommend({ type: 'movie', time: 'short' }, ['netflix'], cat);
   assert.deepStrictEqual(r2.platforms, []);
 });
@@ -192,6 +191,12 @@ test('3 portadas diversas (moods principales distintos en C1)', function () {
   assert.strictEqual(c.length, 3);
   var moods = c.map(function (x) { return x.moods[0]; });
   assert.strictEqual(new Set(moods).size, 3, moods.join(','));
+});
+test('portadas con "Un ratito" + Película: nunca más de 45 min, aunque salgan menos de 3', function () {
+  var cat = [mk({ id: 'c1', dur: 30, moods: ['reir'] }), mk({ id: 'c2', dur: 100, moods: ['miedito'] }),
+    mk({ id: 'c3', dur: 120, moods: ['pensar'] }), mk({ id: 'c4', dur: 25, type: 'series', moods: ['adrenalina'] })];
+  var c = R.pickCheckpointCovers({ time: 'short', type: 'movie' }, ['netflix'], cat, [], []);
+  assert.deepStrictEqual(ids(c), ['c1']);
 });
 test('las portadas respetan tipo y duración', function () {
   var c = R.pickCheckpointCovers({ time: 'normal', type: 'movie' }, ALL_SUBS, FIX, [], []);
@@ -267,7 +272,7 @@ test('cualquier combinación respeta los filtros duros y nunca da plataformas no
           if (audience === 'familia') assert.ok(it.audience.indexOf('familia') !== -1);
         });
         r.totalplay.forEach(function (it) { assert.strictEqual(it.source, 'totalplay'); });
-        var cap = { short: 100, normal: 150 }[time];
+        var cap = { short: 45, normal: 135 }[time];
         r.platforms.concat(r.totalplay).forEach(function (it) {
           if (cap) assert.ok(it.durationMin <= cap, it.id + ' ' + it.durationMin + ' > ' + cap);
           if (audience === 'familia') assert.ok(/^(MX:(AA|A)|US:(G|PG|TV-Y|TV-Y7|TV-G))$/.test(it.certification), it.id + ' ' + it.certification);
@@ -290,11 +295,24 @@ test('en el snapshot, con 4 plataformas el ánimo coincide en >= 90 % de los res
   }); });
   assert.ok(hit / total >= 0.9, Math.round(100 * hit / total) + ' %');
 });
+test('en el snapshot, las portadas nunca rompen tipo/duración/familia', function () {
+  ['short', 'normal', 'any'].forEach(function (time) { ['movie', 'series', 'any'].forEach(function (type) {
+    [[], ['netflix'], ['netflix', 'max', 'prime', 'disney']].forEach(function (subs) {
+      var a = { time: time, type: type, attention: 'high', mood: 'reir', audience: 'familia' };
+      R.pickCheckpointCovers(a, subs, CAT, [], []).forEach(function (it) {
+        var cap = { short: 45, normal: 135 }[time];
+        if (cap) assert.ok(it.durationMin <= cap, it.title + ' ' + it.durationMin);
+        if (type !== 'any') assert.strictEqual(it.type, type);
+        assert.ok(it.audience.indexOf('familia') !== -1, it.title);
+      });
+    });
+  }); });
+});
 test('en el snapshot, C1 y C2 dan 3 portadas diversas y distintas', function () {
-  var c1 = R.pickCheckpointCovers({ time: 'normal', type: 'movie' }, ['netflix', 'max'], CAT, [], []);
+  var c1 = R.pickCheckpointCovers({ time: 'normal', type: 'movie', attention: 'high' }, ['netflix', 'max'], CAT, [], []);
   assert.strictEqual(c1.length, 3);
   for (var i = 0; i < 3; i++) for (var j = i + 1; j < 3; j++) assert.ok(R.isDiverse(c1[i], c1[j]));
-  var c2 = R.pickCheckpointCovers({ time: 'normal', type: 'movie', attention: 'high', mood: 'adrenalina' },
+  var c2 = R.pickCheckpointCovers({ time: 'normal', type: 'movie', attention: 'high', mood: 'adrenalina', audience: 'amigos' },
     ['netflix', 'max'], CAT, ids(c1), [{ shown: ids(c1), picked: null }]);
   assert.strictEqual(c2.length, 3);
   c2.forEach(function (it) { assert.ok(ids(c1).indexOf(it.id) === -1); });

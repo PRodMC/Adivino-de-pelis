@@ -1,7 +1,7 @@
 /* ARCHIVO GENERADO por tools/build-catalog.js — no editar a mano. Fuente: TMDB / JustWatch. */
 /* AVISO: Catálogo Totalplay SIMULADO — no refleja disponibilidad real (items con demo:true). */
 window.TP_CATALOG = {
- "generatedAt": "2026-11-06T16:36:55.868Z",
+ "generatedAt": "2026-11-06T17:47:10.548Z",
  "source": "TMDB",
  "attribution": "Este producto usa la API de TMDB pero no está avalado ni certificado por TMDB. Disponibilidad: JustWatch.",
  "language": "es-MX",
@@ -79,7 +79,7 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "disney",
    "platforms": [
     "disney"
    ],
@@ -87,8 +87,50 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/htUY6chstw5LreWtruELHZITuxy.jpg",
    "synopsis": "El 31 de octubre de 1693, durante los juicios por brujería de Salem, Thackery Binx ve a su hermana Emily adentrarse en el bosque…",
    "overview": "El 31 de octubre de 1693, durante los juicios por brujería de Salem, Thackery Binx ve a su hermana Emily adentrarse en el bosque dirigiéndose a la cabaña de tres brujas. Allí, las hermanas Sanderson, Winifred, Mary y Sarah, hacen un hechizo en Emily para absorber su juventud y recuperar la suya, matándola en el proceso. Binx confronta a las brujas, quienes lo transforman en un gato negro inmortal, con el fin de que viva con la culpa de no haber podido salvar a Emily.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
+  },
+  {
+   "id": "m1076364",
+   "tmdbId": 1076364,
+   "title": "La cita de Carl",
+   "tags": [
+    "animación",
+    "familia",
+    "comedia",
+    "romance",
+    "amor"
+   ],
+   "type": "movie",
+   "year": 2023,
+   "durationMin": 9,
+   "rating": 7.4,
+   "popularity": 5,
+   "certification": "MX:A",
+   "genres": [
+    "Animación",
+    "Familia",
+    "Comedia"
+   ],
+   "moods": [
+    "reir",
+    "emocionarme"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "pareja",
+    "amigos",
+    "familia"
+   ],
+   "source": "disney",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/ow1znpLHXVdkw7QrBoZjumJWmdT.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/ow1znpLHXVdkw7QrBoZjumJWmdT.jpg",
+   "synopsis": "Corto de animación protagonizado por Carl y Dug de la película de Pixar \"Up\", que acompañará en el estreno de cines del film \"Elemental\".",
+   "overview": "Corto de animación protagonizado por Carl y Dug de la película de Pixar \"Up\", que acompañará en el estreno de cines del film \"Elemental\".",
+   "detailUrl": null
   },
   {
    "id": "m1081003",
@@ -131,48 +173,6 @@ window.TP_CATALOG = {
    "overview": "Mientras celebra su cumpleaños número 21, Kara Zor-El viaja por la galaxia con su perro Krypto, durante el cual conoce a la joven Ruthye Marye Knoll y emprende una \"búsqueda asesina de venganza\".",
    "detailUrl": null,
    "demo": true
-  },
-  {
-   "id": "m1084242",
-   "tmdbId": 1084242,
-   "title": "Zootopia 2",
-   "tags": [
-    "animación",
-    "aventura",
-    "comedia",
-    "misterio",
-    "familia"
-   ],
-   "type": "movie",
-   "year": 2025,
-   "durationMin": 107,
-   "rating": 7.7,
-   "popularity": 39,
-   "certification": "MX:A",
-   "genres": [
-    "Animación",
-    "Aventura",
-    "Comedia"
-   ],
-   "moods": [
-    "adrenalina",
-    "reir"
-   ],
-   "attention": "low",
-   "audience": [
-    "solo",
-    "amigos",
-    "familia"
-   ],
-   "source": "disney",
-   "platforms": [
-    "disney"
-   ],
-   "posterPath": "/LrMBxFwnsMgXTnaWqHYinn3vDN.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/LrMBxFwnsMgXTnaWqHYinn3vDN.jpg",
-   "synopsis": "Tras resolver el caso más importante de la historia de Zootopia, los policías novatos Judy Hopps y Nick Wilde se encuentran en la sinuosa…",
-   "overview": "Tras resolver el caso más importante de la historia de Zootopia, los policías novatos Judy Hopps y Nick Wilde se encuentran en la sinuosa pista de un gran misterio cuando Gary De'Snake llega y revoluciona la metrópolis animal.",
-   "detailUrl": null
   },
   {
    "id": "m1084244",
@@ -248,7 +248,7 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "disney",
    "platforms": [
     "disney"
    ],
@@ -256,8 +256,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/uJNKHZLgnvWqveB4uai0kaWom6M.jpg",
    "synopsis": "Moana que quiere ser una viajera marinera. Cuando su isla natal se ve amenazada, Moana debe adentrarse en el mar junto a un semidiós…",
    "overview": "Moana que quiere ser una viajera marinera. Cuando su isla natal se ve amenazada, Moana debe adentrarse en el mar junto a un semidiós llamado Maui para salvar a su pueblo.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m1128204",
@@ -296,6 +295,90 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
+   "id": "m1147400",
+   "tmdbId": 1147400,
+   "title": "Mundo Miraculous: Paris, las aventuras De Shadybug y Claw Noir",
+   "tags": [
+    "animación",
+    "familia",
+    "acción",
+    "aventura",
+    "fantasía"
+   ],
+   "type": "movie",
+   "year": 2024,
+   "durationMin": 53,
+   "rating": 7.3,
+   "popularity": 6,
+   "certification": "US:PG",
+   "genres": [
+    "Animación",
+    "Familia",
+    "Acción"
+   ],
+   "moods": [
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "netflix",
+    "disney"
+   ],
+   "posterPath": "/A7YDBDf9z1jvORT3omeD01Ez47S.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/A7YDBDf9z1jvORT3omeD01Ez47S.jpg",
+   "synopsis": "Dobles oscuras de Ladybug y Cat Noir, provenientes de otro mundo, invaden París para robar el Miraculous de la Mariposa, desatando un…",
+   "overview": "Dobles oscuras de Ladybug y Cat Noir, provenientes de otro mundo, invaden París para robar el Miraculous de la Mariposa, desatando un enfrentamiento por la poderosa joya.",
+   "detailUrl": null,
+   "demo": true
+  },
+  {
+   "id": "m1147416",
+   "tmdbId": 1147416,
+   "title": "Mundo Miraculous: Londres, al filo del tiempo",
+   "tags": [
+    "animación",
+    "familia",
+    "acción",
+    "aventura",
+    "fantasía"
+   ],
+   "type": "movie",
+   "year": 2024,
+   "durationMin": 50,
+   "rating": 7.6,
+   "popularity": 7,
+   "certification": "US:PG",
+   "genres": [
+    "Animación",
+    "Familia",
+    "Acción"
+   ],
+   "moods": [
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "disney",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/bVT9Shsi9NnJUN16kLA197Vr6ms.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/bVT9Shsi9NnJUN16kLA197Vr6ms.jpg",
+   "synopsis": "Marinette se convierte en Chronobug y se une a Bunnyx para enfrentarse a un oponente misterioso que viaja en el tiempo y pone en peligro…",
+   "overview": "Marinette se convierte en Chronobug y se une a Bunnyx para enfrentarse a un oponente misterioso que viaja en el tiempo y pone en peligro al mundo. Pero ¿quién es este nuevo supervillano y por qué está obsesionado con revelar la identidad secreta de Marinette? Su única esperanza es derrotarlo para evitar el fin de Ladybug y el tiempo mismo.",
+   "detailUrl": null
+  },
+  {
    "id": "m1148365",
    "tmdbId": 1148365,
    "title": "Matchbox: La película",
@@ -325,7 +408,7 @@ window.TP_CATALOG = {
     "solo",
     "amigos"
    ],
-   "source": "appletv",
+   "source": "totalplay",
    "platforms": [
     "appletv"
    ],
@@ -333,7 +416,8 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/ev2GnYar3LUyui8sOu4gqeMXvLi.jpg",
    "synopsis": "Cuando un grupo de antiguos amigos de la infancia reconecta, su reunión da un giro inesperado al descubrir un complot internacional y…",
    "overview": "Cuando un grupo de antiguos amigos de la infancia reconecta, su reunión da un giro inesperado al descubrir un complot internacional y darse cuenta de que deben salvar al mundo.",
-   "detailUrl": null
+   "detailUrl": null,
+   "demo": true
   },
   {
    "id": "m1150394",
@@ -366,7 +450,7 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "vix",
    "platforms": [
     "vix"
    ],
@@ -374,8 +458,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/4f9ghI3utknpeBZSAzNuIKKATOA.jpg",
    "synopsis": "Cinco años después de haber renunciado a sus poderes y haberse separado de sus amigos, Leo San Juan ha iniciado una nueva vida tratando de…",
    "overview": "Cinco años después de haber renunciado a sus poderes y haberse separado de sus amigos, Leo San Juan ha iniciado una nueva vida tratando de concentrarse en la familia y en la panadería, alejándose del peligro y de las aventuras. Sin embargo, Leo sabe que rara vez se cumplen sus planes y esta vez no es la excepción: estando de viaje con Nando en Veracruz, las cosas empiezan a ponerse raras, y es que desde lo más profundo de la selva de los Tuxtlas una antigua maldición ha regresado y sólo Leo puede enfrentarla.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m1159559",
@@ -420,6 +503,44 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
+   "id": "m1172676",
+   "tmdbId": 1172676,
+   "title": "Veneno",
+   "tags": [
+    "comedia",
+    "suspense"
+   ],
+   "type": "movie",
+   "year": 2023,
+   "durationMin": 17,
+   "rating": 6.8,
+   "popularity": 5,
+   "certification": "MX:A",
+   "genres": [
+    "Comedia",
+    "Suspense"
+   ],
+   "moods": [
+    "reir",
+    "miedito"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "netflix",
+   "platforms": [
+    "netflix"
+   ],
+   "posterPath": "/g5zSigiY7rjufWDPdSTAsfIoJz1.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/g5zSigiY7rjufWDPdSTAsfIoJz1.jpg",
+   "synopsis": "Cuando una serpiente venenosa se desliza sobre el estómago de un inglés en la India, su socio y un médico corren para salvarlo.",
+   "overview": "Cuando una serpiente venenosa se desliza sobre el estómago de un inglés en la India, su socio y un médico corren para salvarlo.",
+   "detailUrl": null
+  },
+  {
    "id": "m1184918",
    "tmdbId": 1184918,
    "title": "Robot salvaje",
@@ -451,7 +572,7 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "prime",
    "platforms": [
     "prime"
    ],
@@ -459,6 +580,41 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/o1EdwGuxnVuj4kwm47Zmom64h3G.jpg",
    "synopsis": "Un robot - ROZZUM unidad 7134, \"Roz\" para abreviar - naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno,…",
    "overview": "Un robot - ROZZUM unidad 7134, \"Roz\" para abreviar - naufraga en una isla deshabitada y debe aprender a adaptarse al duro entorno, estableciendo gradualmente relaciones con los animales de la isla y convirtiéndose en la madre adoptiva de un ganso huérfano.",
+   "detailUrl": null
+  },
+  {
+   "id": "m1192548",
+   "tmdbId": 1192548,
+   "title": "Una Navidad con Hannah Waddingham",
+   "tags": [
+    "música",
+    "navidad"
+   ],
+   "type": "movie",
+   "year": 2023,
+   "durationMin": 44,
+   "rating": 6.2,
+   "popularity": 7,
+   "certification": "MX:A",
+   "genres": [
+    "Música"
+   ],
+   "moods": [
+    "emocionarme"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "appletv"
+   ],
+   "posterPath": "/iwS67srjesgJZdsiIM8Nluf3sDH.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/iwS67srjesgJZdsiIM8Nluf3sDH.jpg",
+   "synopsis": "Celebra la llegada de las fiestas con la estrella ganadora el Emmy Hannah Waddingham, quien recibe invitados especiales en un deslumbrante…",
+   "overview": "Celebra la llegada de las fiestas con la estrella ganadora el Emmy Hannah Waddingham, quien recibe invitados especiales en un deslumbrante espectáculo musical en el London Coliseum.",
    "detailUrl": null,
    "demo": true
   },
@@ -476,7 +632,7 @@ window.TP_CATALOG = {
    "type": "movie",
    "year": 2001,
    "durationMin": 179,
-   "rating": 8.4,
+   "rating": 8.5,
    "popularity": 41,
    "certification": "MX:B",
    "genres": [
@@ -546,43 +702,6 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/up6gIHZlfEQZkHIfQwcOOaGOzOt.jpg",
    "synopsis": "La Compañía del Anillo se ha disuelto. El portador del anillo Frodo y su fiel amigo Sam se dirigen hacia Mordor para destruir el Anillo…",
    "overview": "La Compañía del Anillo se ha disuelto. El portador del anillo Frodo y su fiel amigo Sam se dirigen hacia Mordor para destruir el Anillo Único y acabar con el poder de Sauron. Mientras, y tras la dura batalla contra los orcos donde cayó Boromir, el hombre Aragorn, el elfo Legolas y el enano Gimli intentan rescatar a los medianos Merry y Pipin, secuestrados por los ogros de Mordor. Por su parte, Saurón y el traidor Sarumán continúan con sus planes en Mordor, en espera de la guerra contra las razas libres de la Tierra Media.",
-   "detailUrl": null
-  },
-  {
-   "id": "m1212763",
-   "tmdbId": 1212763,
-   "title": "Evil Dead: En llamas",
-   "tags": [
-    "terror",
-    "sobrenatural",
-    "demonios",
-    "familia"
-   ],
-   "type": "movie",
-   "year": 2026,
-   "durationMin": 110,
-   "rating": 7.6,
-   "popularity": 28,
-   "certification": "MX:C",
-   "genres": [
-    "Terror"
-   ],
-   "moods": [
-    "miedito"
-   ],
-   "attention": "high",
-   "audience": [
-    "solo",
-    "amigos"
-   ],
-   "source": "max",
-   "platforms": [
-    "max"
-   ],
-   "posterPath": "/p6Fe34oDVmyE4LYp6sRQr8lZ45N.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/p6Fe34oDVmyE4LYp6sRQr8lZ45N.jpg",
-   "synopsis": "Tras la muerte de su esposo, una mujer busca consuelo en sus suegros. A medida que uno a uno se transforman en muertos vivientes, descubre…",
-   "overview": "Tras la muerte de su esposo, una mujer busca consuelo en sus suegros. A medida que uno a uno se transforman en muertos vivientes, descubre que los votos que hizo en vida perduran incluso en la muerte.",
    "detailUrl": null
   },
   {
@@ -705,6 +824,46 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "m129",
+   "tmdbId": 129,
+   "title": "El viaje de Chihiro",
+   "tags": [
+    "animación",
+    "familia",
+    "fantasía",
+    "magia",
+    "anime"
+   ],
+   "type": "movie",
+   "year": 2001,
+   "durationMin": 125,
+   "rating": 8.5,
+   "popularity": 41,
+   "certification": "MX:A",
+   "genres": [
+    "Animación",
+    "Familia",
+    "Fantasía"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "netflix",
+   "platforms": [
+    "netflix"
+   ],
+   "posterPath": "/4TfZdXABpM0j0FIyRSUQDUXxVwV.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/4TfZdXABpM0j0FIyRSUQDUXxVwV.jpg",
+   "synopsis": "Durante la mudanza de su familia a los suburbios, una huraña niña de 10 años de edad deambula por un mundo gobernado por dioses, brujas y…",
+   "overview": "Durante la mudanza de su familia a los suburbios, una huraña niña de 10 años de edad deambula por un mundo gobernado por dioses, brujas y espíritus, y donde los humanos se convierten en bestias.",
+   "detailUrl": null
+  },
+  {
    "id": "m1294189",
    "tmdbId": 1294189,
    "title": "La Mangosta",
@@ -715,7 +874,7 @@ window.TP_CATALOG = {
    "type": "movie",
    "year": 2026,
    "durationMin": 99,
-   "rating": 6.1,
+   "rating": 6,
    "popularity": 219,
    "certification": "US:R",
    "genres": [
@@ -742,47 +901,82 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
-   "id": "m1311031",
-   "tmdbId": 1311031,
-   "title": "Demon Slayer: Kimetsu no Yaiba Castillo infinito",
+   "id": "m13353",
+   "tmdbId": 13353,
+   "title": "Es la gran calabaza, Charlie Brown",
    "tags": [
     "animación",
-    "acción",
-    "fantasía",
-    "amistad",
-    "sobrenatural"
+    "película de tv",
+    "familia"
    ],
    "type": "movie",
-   "year": 2025,
-   "durationMin": 155,
-   "rating": 8.8,
-   "popularity": 36,
-   "certification": "MX:B-15",
+   "year": 1966,
+   "durationMin": 25,
+   "rating": 7.5,
+   "popularity": 5,
+   "certification": "MX:A",
    "genres": [
     "Animación",
-    "Acción",
-    "Fantasía"
+    "Película de TV",
+    "Familia"
    ],
    "moods": [
-    "adrenalina",
-    "miedito"
+    "reir"
    ],
    "attention": "low",
    "audience": [
     "solo",
-    "amigos"
+    "familia"
    ],
-   "source": "netflix",
+   "source": "appletv",
    "platforms": [
-    "netflix",
-    "prime",
-    "disney",
-    "max"
+    "appletv"
    ],
-   "posterPath": "/6N21gcFbhT4ocdTU4MGREAaM5Vz.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/6N21gcFbhT4ocdTU4MGREAaM5Vz.jpg",
-   "synopsis": "Tanjirō Kamado es un chico que se unió a una organización dedicada a cazar demonios después de que su hermana menor, Nezuko, fuera…",
-   "overview": "Tanjirō Kamado es un chico que se unió a una organización dedicada a cazar demonios después de que su hermana menor, Nezuko, fuera convertida. Mientras los miembros de la organización y los Pilares participaban en un programa de entrenamiento grupal, como preparación para la inminente batalla contra los demonios, Muzan Kibutsuji aparece en la Mansión Ubuyashiki. Con el jefe de la organización en peligro, Tanjirō y los Pilares corren hacia la mansión, pero son arrastrados a un espacio misterioso por obra de Kibutsuji. El lugar al que han caído Tanjirō y los cazadores es el bastión de los demonios: el Castillo Infinito. Así, el campo de batalla queda establecido para dar fin a la guerra entre humanos y demonios.",
+   "posterPath": "/59wp9OWexYsxlSPHYmVLsl5xlFt.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/59wp9OWexYsxlSPHYmVLsl5xlFt.jpg",
+   "synopsis": "Disfraces, dulces y este especial clásico son esenciales para Halloween. Acompaña a Charlie Brown, Snoopy y sus amigos en sus divertidas…",
+   "overview": "Disfraces, dulces y este especial clásico son esenciales para Halloween. Acompaña a Charlie Brown, Snoopy y sus amigos en sus divertidas aventuras.",
+   "detailUrl": null
+  },
+  {
+   "id": "m1355755",
+   "tmdbId": 1355755,
+   "title": "Casi un cuento navideño",
+   "tags": [
+    "animación",
+    "aventura",
+    "fantasía",
+    "familia",
+    "navidad"
+   ],
+   "type": "movie",
+   "year": 2024,
+   "durationMin": 24,
+   "rating": 7,
+   "popularity": 5,
+   "certification": "US:G",
+   "genres": [
+    "Animación",
+    "Aventura",
+    "Fantasía"
+   ],
+   "moods": [
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "disney",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/j7dQpQ6BwYQLqmf4mXINfzEViZI.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/j7dQpQ6BwYQLqmf4mXINfzEViZI.jpg",
+   "synopsis": "Un joven búho se encuentra con una niña perdida en NY. Juntos, intentan llegar a casa para Navidad.",
+   "overview": "Un joven búho se encuentra con una niña perdida en NY. Juntos, intentan llegar a casa para Navidad.",
    "detailUrl": null
   },
   {
@@ -861,6 +1055,47 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "m1507275",
+   "tmdbId": 1507275,
+   "title": "PAW Patrol especial de Navidad",
+   "tags": [
+    "animación",
+    "familia",
+    "aventura",
+    "perritos",
+    "navidad"
+   ],
+   "type": "movie",
+   "year": 2025,
+   "durationMin": 55,
+   "rating": 7.4,
+   "popularity": 5,
+   "certification": "MX:AA",
+   "genres": [
+    "Animación",
+    "Familia",
+    "Aventura"
+   ],
+   "moods": [
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "paramount",
+   "platforms": [
+    "paramount"
+   ],
+   "posterPath": "/Aq71BI9YAEhO6GBvsLFjd3SGSDT.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/Aq71BI9YAEhO6GBvsLFjd3SGSDT.jpg",
+   "synopsis": "Rubble está deseando que llegue la Navidad, con la esperanza de que Papá Noel le traiga un taladro láser pero cuando Papá Noel cae enfermo…",
+   "overview": "Rubble está deseando que llegue la Navidad, con la esperanza de que Papá Noel le traiga un taladro láser pero cuando Papá Noel cae enfermo por un resfriado, la Navidad ¡corre peligro de cancelarse!",
+   "detailUrl": null
+  },
+  {
    "id": "m1507696",
    "tmdbId": 1507696,
    "title": "Apocalipsis Z: Nuevo mundo",
@@ -891,7 +1126,7 @@ window.TP_CATALOG = {
     "solo",
     "amigos"
    ],
-   "source": "totalplay",
+   "source": "prime",
    "platforms": [
     "prime"
    ],
@@ -899,8 +1134,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/pS2R3DEiucuizVkKP80qzdO97TE.jpg",
    "synopsis": "Secuela de 'Apocalipsis Z: El principio del fin'. La historia nos traslada a unas Islas Canarias que se han convertido en el último…",
    "overview": "Secuela de 'Apocalipsis Z: El principio del fin'. La historia nos traslada a unas Islas Canarias que se han convertido en el último refugio de Europa tras el brote del virus TSJ. Cuando una misión especial parte hacia la península en busca de suministros vitales, Roberto (Carlos Alcaide) se une al equipo con dudosas intenciones. La peligrosa operación se transforma en una carrera desesperada por la supervivencia, y Roberto y sus compañeros se encontrarán entre hordas de infectados y lealtades divididas. Entonces surge la eterna pregunta: ¿salvarse uno mismo o arriesgarlo todo para salvar lo poco que queda de humanidad?",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m155",
@@ -946,6 +1180,47 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
+   "id": "m1550797",
+   "tmdbId": 1550797,
+   "title": "Patrulla de aterrizaje: Operación bola de nieve",
+   "tags": [
+    "animación",
+    "comedia",
+    "fantasía",
+    "familia",
+    "navidad"
+   ],
+   "type": "movie",
+   "year": 2025,
+   "durationMin": 22,
+   "rating": 6.8,
+   "popularity": 5,
+   "certification": "US:G",
+   "genres": [
+    "Animación",
+    "Comedia",
+    "Fantasía"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "disney",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/7OEHZWxXpWx3B9nphxAfSkdqioY.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/7OEHZWxXpWx3B9nphxAfSkdqioY.jpg",
+   "synopsis": "Los elfos navideños Lanny y Wayne entran en pánico cuando sus misiones festivas salen mal. Wayne cree que está en serios problemas con…",
+   "overview": "Los elfos navideños Lanny y Wayne entran en pánico cuando sus misiones festivas salen mal. Wayne cree que está en serios problemas con Santa y, sin querer, revela otros divertidos contratiempos.",
+   "detailUrl": null
+  },
+  {
    "id": "m1561726",
    "tmdbId": 1561726,
    "title": "Masterplan",
@@ -983,6 +1258,46 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "m1566269",
+   "tmdbId": 1566269,
+   "title": "La primera nevada en Fraggle Rock",
+   "tags": [
+    "familia",
+    "comedia",
+    "música"
+   ],
+   "type": "movie",
+   "year": 2025,
+   "durationMin": 34,
+   "rating": 6.5,
+   "popularity": 7,
+   "certification": "MX:A",
+   "genres": [
+    "Familia",
+    "Comedia",
+    "Música"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "appletv"
+   ],
+   "posterPath": "/sa1EA8TI8IbHiaIyjC5DWJZHonP.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/sa1EA8TI8IbHiaIyjC5DWJZHonP.jpg",
+   "synopsis": "Cuando las fiestas se llenan de aventuras y retos inesperados, los Fraggles aprenden a apreciar cada día por ser único y especial como un…",
+   "overview": "Cuando las fiestas se llenan de aventuras y retos inesperados, los Fraggles aprenden a apreciar cada día por ser único y especial como un copo de nieve.",
+   "detailUrl": null,
+   "demo": true
+  },
+  {
    "id": "m1570488",
    "tmdbId": 1570488,
    "title": "La razón de estar contigo: Una Navidad perfecta",
@@ -1012,7 +1327,7 @@ window.TP_CATALOG = {
     "pareja",
     "amigos"
    ],
-   "source": "totalplay",
+   "source": "netflix",
    "platforms": [
     "netflix"
    ],
@@ -1020,8 +1335,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/eixA3LDfxqMKpz2L8uIM1kTIJ8g.jpg",
    "synopsis": "Cuando una emergencia médica sacude a la familia Goss, su sabio perro Winstead decide hacer todo lo posible para mantener a sus humanos…",
    "overview": "Cuando una emergencia médica sacude a la familia Goss, su sabio perro Winstead decide hacer todo lo posible para mantener a sus humanos unidos antes de la Nochebuena.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m1571955",
@@ -1097,7 +1411,7 @@ window.TP_CATALOG = {
     "pareja",
     "amigos"
    ],
-   "source": "totalplay",
+   "source": "prime",
    "platforms": [
     "prime",
     "max"
@@ -1106,8 +1420,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/oBvINgU5r10WHvG6VSopCOlWtJP.jpg",
    "synopsis": "Cooper y un grupo de exploradores utilizan un agujero de gusano recién descubierto para superar las limitaciones de los viajes espaciales…",
    "overview": "Cooper y un grupo de exploradores utilizan un agujero de gusano recién descubierto para superar las limitaciones de los viajes espaciales humanos y conquistar las vastas distancias que implica un viaje interestelar.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m1596275",
@@ -1188,6 +1501,78 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "m1662432",
+   "tmdbId": 1662432,
+   "title": "En busca de Harry: El arte detrás de la magia",
+   "tags": [
+    "documental",
+    "magia"
+   ],
+   "type": "movie",
+   "year": 2026,
+   "durationMin": 26,
+   "rating": 7.7,
+   "popularity": 7,
+   "certification": "US:PG",
+   "genres": [
+    "Documental"
+   ],
+   "moods": [
+    "pensar"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "max",
+   "platforms": [
+    "max"
+   ],
+   "posterPath": "/v9kNDfpOG7o2W6mHfUltypvZEPa.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/v9kNDfpOG7o2W6mHfUltypvZEPa.jpg",
+   "synopsis": "Narrado por Nick Frost, que interpreta a Hagrid en Harry Potter de HBO, y con la participación de miembros clave del reparto directamente…",
+   "overview": "Narrado por Nick Frost, que interpreta a Hagrid en Harry Potter de HBO, y con la participación de miembros clave del reparto directamente desde la mesa de profesores, como John Lithgow, Janet McTeer y Paapa Essiedu, este especial exclusivo promete una mirada al interior de la escala épica y el cuidado meticuloso que hay detrás de la nueva serie.",
+   "detailUrl": null
+  },
+  {
+   "id": "m1698575",
+   "tmdbId": 1698575,
+   "title": "Snoopy presenta: Hogar, dulce hogar",
+   "tags": [
+    "animación",
+    "familia"
+   ],
+   "type": "movie",
+   "year": 2026,
+   "durationMin": 32,
+   "rating": 8.4,
+   "popularity": 7,
+   "certification": "MX:A",
+   "genres": [
+    "Animación",
+    "Familia"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "appletv"
+   ],
+   "posterPath": "/d4yUl1kF9CvC5izhDAPEeBqrd9C.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/d4yUl1kF9CvC5izhDAPEeBqrd9C.jpg",
+   "synopsis": "Cuando su amada casita desaparece, Snoopy intenta buscarla y descubre qué es lo que hace que una casa se sienta como un hogar.",
+   "overview": "Cuando su amada casita desaparece, Snoopy intenta buscarla y descubre qué es lo que hace que una casa se sienta como un hogar.",
+   "detailUrl": null,
+   "demo": true
+  },
+  {
    "id": "m1727734",
    "tmdbId": 1727734,
    "title": "Ali G: ¿Kién Ez Yo?",
@@ -1211,7 +1596,7 @@ window.TP_CATALOG = {
     "solo",
     "amigos"
    ],
-   "source": "totalplay",
+   "source": "prime",
    "platforms": [
     "prime"
    ],
@@ -1219,6 +1604,125 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/mgsw0NVOn5VX9rA6An8ijwUFX7q.jpg",
    "synopsis": "Tras veinte años dedicados a «relajarse, fumar y follar», Ali G se queda atónito al descubrir que Julie, su novia de toda la vida, está…",
    "overview": "Tras veinte años dedicados a «relajarse, fumar y follar», Ali G se queda atónito al descubrir que Julie, su novia de toda la vida, está embarazada de ocho meses. Ante la perspectiva de tener una boca más que alimentar, deja de holgazanear y pone rumbo a Estados Unidos para recuperar su antigua gloria... pero pronto se topa con adversarios que acabarán amenazando su propia existencia y la de su hijo.",
+   "detailUrl": null
+  },
+  {
+   "id": "m1732625",
+   "tmdbId": 1732625,
+   "title": "LEGO Disney Princesa: Caos mágico",
+   "tags": [
+    "animación",
+    "fantasía",
+    "comedia",
+    "aventura",
+    "familia"
+   ],
+   "type": "movie",
+   "year": 2026,
+   "durationMin": 22,
+   "rating": 6.5,
+   "popularity": 5,
+   "certification": "US:G",
+   "genres": [
+    "Animación",
+    "Fantasía",
+    "Comedia"
+   ],
+   "moods": [
+    "reir",
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "disney",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/21SCsrJ2dd6tnYHMjOFZLt2E4Nl.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/21SCsrJ2dd6tnYHMjOFZLt2E4Nl.jpg",
+   "synopsis": "Durante una fuerte tormenta, las princesas y sus amigos acogen a animales necesitados mientras disfrutan de un día acogedor en su…",
+   "overview": "Durante una fuerte tormenta, las princesas y sus amigos acogen a animales necesitados mientras disfrutan de un día acogedor en su castillo. Pero cuando los animales se vuelven locos, se desata el caos. Tras investigar un poco, descubren que detrás se esconde un villano y, gracias al trabajo en equipo, a su ingenio y a la ayuda de un amigo inesperado, deben restablecer el orden y salvar su hogar.",
+   "detailUrl": null
+  },
+  {
+   "id": "m1740877",
+   "tmdbId": 1740877,
+   "title": "Sesame Street: Tormenta en Plaza Sésamo",
+   "tags": [
+    "familia",
+    "animación"
+   ],
+   "type": "movie",
+   "year": 2026,
+   "durationMin": 30,
+   "rating": 6.9,
+   "popularity": 5,
+   "certification": "MX:AA",
+   "genres": [
+    "Familia",
+    "Animación"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "netflix"
+   ],
+   "posterPath": "/okvOQKSkMKmGt9LRV4eJ7ejikQv.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/okvOQKSkMKmGt9LRV4eJ7ejikQv.jpg",
+   "synopsis": "Un huracán pasa por Sesame Street, ¡y Big Bird se queda sin nido! Pero sus amigos se unen para animarlo y ayudarlo a reconstruir su hogar.",
+   "overview": "Un huracán pasa por Sesame Street, ¡y Big Bird se queda sin nido! Pero sus amigos se unen para animarlo y ayudarlo a reconstruir su hogar.",
+   "detailUrl": null,
+   "demo": true
+  },
+  {
+   "id": "m176983",
+   "tmdbId": 176983,
+   "title": "One Piece: Z",
+   "tags": [
+    "animación",
+    "fantasía",
+    "acción",
+    "aventura",
+    "anime"
+   ],
+   "type": "movie",
+   "year": 2012,
+   "durationMin": 108,
+   "rating": 7.5,
+   "popularity": 5,
+   "certification": "US:PG-13",
+   "genres": [
+    "Animación",
+    "Fantasía",
+    "Acción"
+   ],
+   "moods": [
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "netflix"
+   ],
+   "posterPath": "/guzIZgMMUp11qDA22clAdVXRids.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/guzIZgMMUp11qDA22clAdVXRids.jpg",
+   "synopsis": "Un ex-almirante de la Marina roba el Dyna Stones, y se cruza en el camino de los Piratas de Sombrero de Paja.",
+   "overview": "Un ex-almirante de la Marina roba el Dyna Stones, y se cruza en el camino de los Piratas de Sombrero de Paja.",
    "detailUrl": null,
    "demo": true
   },
@@ -1577,47 +2081,6 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
-   "id": "m299534",
-   "tmdbId": 299534,
-   "title": "Avengers: Endgame",
-   "tags": [
-    "aventura",
-    "ciencia ficción",
-    "acción",
-    "superhéroes",
-    "viajes en el tiempo"
-   ],
-   "type": "movie",
-   "year": 2019,
-   "durationMin": 180,
-   "rating": 8.2,
-   "popularity": 52,
-   "certification": "MX:B",
-   "genres": [
-    "Aventura",
-    "Ciencia ficción",
-    "Acción"
-   ],
-   "moods": [
-    "adrenalina",
-    "pensar"
-   ],
-   "attention": "high",
-   "audience": [
-    "solo",
-    "amigos"
-   ],
-   "source": "disney",
-   "platforms": [
-    "disney"
-   ],
-   "posterPath": "/uIPTS25whXkAAfRqptuPX4y4XiS.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/uIPTS25whXkAAfRqptuPX4y4XiS.jpg",
-   "synopsis": "Después de los devastadores eventos de los Vengadores: Infinity War (2018), el universo está en ruinas. Con la ayuda de los aliados…",
-   "overview": "Después de los devastadores eventos de los Vengadores: Infinity War (2018), el universo está en ruinas. Con la ayuda de los aliados restantes, los Vengadores se reúnen una vez más para revertir las acciones de Thanos y restaurar el equilibrio del universo.",
-   "detailUrl": null
-  },
-  {
    "id": "m324552",
    "tmdbId": 324552,
    "title": "John Wick 2: Un Nuevo Día para Matar",
@@ -1743,46 +2206,6 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
-   "id": "m361743",
-   "tmdbId": 361743,
-   "title": "Top Gun: Maverick",
-   "tags": [
-    "acción",
-    "drama",
-    "guerra"
-   ],
-   "type": "movie",
-   "year": 2022,
-   "durationMin": 131,
-   "rating": 8.2,
-   "popularity": 43,
-   "certification": "MX:B",
-   "genres": [
-    "Acción",
-    "Drama"
-   ],
-   "moods": [
-    "adrenalina",
-    "emocionarme"
-   ],
-   "attention": "high",
-   "audience": [
-    "solo",
-    "pareja",
-    "amigos"
-   ],
-   "source": "paramount",
-   "platforms": [
-    "paramount",
-    "vix"
-   ],
-   "posterPath": "/AlWpEpQq0RgZIXVHAHZtFhEvRgd.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/AlWpEpQq0RgZIXVHAHZtFhEvRgd.jpg",
-   "synopsis": "Después de más de treinta años de servicio como uno de los mejores aviadores de la Armada, Pete \"Maverick\" Mitchell está en donde…",
-   "overview": "Después de más de treinta años de servicio como uno de los mejores aviadores de la Armada, Pete \"Maverick\" Mitchell está en donde pertenece, sobresaliendo como un valiente piloto de pruebas y evitando subir de rango en la armada, que evitaría que pudiera seguir volando. Cuando se encuentra entrenando a un destacamento de graduados de Top Gun para una misión especial que ningún piloto vivo ha visto antes, Maverick se encuentra con el teniente Bradley Bradshaw, señal de llamada: \"Rooster\", el hijo del difunto amigo de Maverick y el oficial de intercepción de radar, el teniente Nick Bradshaw, también conocido como \"Goose\".",
-   "detailUrl": null
-  },
-  {
    "id": "m3933",
    "tmdbId": 3933,
    "title": "El cadáver de la novia",
@@ -1812,7 +2235,7 @@ window.TP_CATALOG = {
     "pareja",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "netflix",
    "platforms": [
     "netflix",
     "max"
@@ -1821,8 +2244,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/nf58Ni0DPP9KY5tEMo2lAyUIYU3.jpg",
    "synopsis": "Cuando un tímido novio practica sus votos matrimoniales en presencia inadvertida de una joven fallecida, ella se levanta de la tumba…",
    "overview": "Cuando un tímido novio practica sus votos matrimoniales en presencia inadvertida de una joven fallecida, ella se levanta de la tumba asumiendo que se ha casado con ella.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m414906",
@@ -1854,7 +2276,7 @@ window.TP_CATALOG = {
    "audience": [
     "solo"
    ],
-   "source": "totalplay",
+   "source": "max",
    "platforms": [
     "max"
    ],
@@ -1862,8 +2284,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/kOD0qxiUmSg7M5LeHNWT6KffsNQ.jpg",
    "synopsis": "Cuando un asesino se dirige a la élite de Gotham con una serie de maquinaciones sádicas, un rastro de pistas crípticas envía Batman a una…",
    "overview": "Cuando un asesino se dirige a la élite de Gotham con una serie de maquinaciones sádicas, un rastro de pistas crípticas envía Batman a una investigación en los bajos fondos. A medida que las pruebas comienzan a acercarse a su casa y se hace evidente la magnitud de los planes del autor, Batman debe forjar nuevas relaciones, desenmascarar al culpable y hacer justicia al abuso de poder y la corrupción que durante mucho tiempo han asolado Gotham City.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m4232",
@@ -2031,6 +2452,49 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
+   "id": "m460793",
+   "tmdbId": 460793,
+   "title": "Olaf: Otra aventura congelada de Frozen",
+   "tags": [
+    "animación",
+    "familia",
+    "aventura",
+    "comedia",
+    "fantasía"
+   ],
+   "type": "movie",
+   "year": 2017,
+   "durationMin": 22,
+   "rating": 6.5,
+   "popularity": 5,
+   "certification": "US:G",
+   "genres": [
+    "Animación",
+    "Familia",
+    "Aventura"
+   ],
+   "moods": [
+    "adrenalina",
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/vtDqtd3jifF3pEGcMUZXwW8yuem.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/vtDqtd3jifF3pEGcMUZXwW8yuem.jpg",
+   "synopsis": "Todos se van de Arendelle por las fiestas y Anna y Elsa se dan cuenta de que no tienen tradiciones familiares propias, por lo que Olaf se…",
+   "overview": "Todos se van de Arendelle por las fiestas y Anna y Elsa se dan cuenta de que no tienen tradiciones familiares propias, por lo que Olaf se embarca en la misión de llevar a casa las mejores tradiciones y salvar la Navidad.",
+   "detailUrl": null,
+   "demo": true
+  },
+  {
    "id": "m466420",
    "tmdbId": 466420,
    "title": "Los asesinos de la luna",
@@ -2187,6 +2651,47 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "m552095",
+   "tmdbId": 552095,
+   "title": "Patrulla de Cachorros La Poderosa Patrulla",
+   "tags": [
+    "aventura",
+    "animación",
+    "familia",
+    "acción",
+    "perritos"
+   ],
+   "type": "movie",
+   "year": 2018,
+   "durationMin": 44,
+   "rating": 7.5,
+   "popularity": 5,
+   "certification": "US:G",
+   "genres": [
+    "Aventura",
+    "Animación",
+    "Familia"
+   ],
+   "moods": [
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "paramount",
+   "platforms": [
+    "paramount"
+   ],
+   "posterPath": "/tHcVkfjPZ8bocEV3tsZtdpln9Az.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/tHcVkfjPZ8bocEV3tsZtdpln9Az.jpg",
+   "synopsis": "Patrulla Canina: Cachorros Poderosos. Cuando los planes del alcalde Humdinger de llegar a la luna resultan en la caída de un meteoro a la…",
+   "overview": "Patrulla Canina: Cachorros Poderosos. Cuando los planes del alcalde Humdinger de llegar a la luna resultan en la caída de un meteoro a la tierra, los cachorros de la Patrulla Canina deberán hacer todo lo posible por proteger a los ciudadanos de Bahía de la Aventura. Pero a raíz de la energía expulsada por este meteoro, los cachorros descubren que tienen superpoderes. Lo único malo es que Harold, el sobrino del alcalde, también ha adquirido superpoderes y, gracias a ellos, ayudará a su tío, quien ahora también quiere tener superpoderes, a robar lo que queda del meteoro. ¿Lograrán los Super Cachorros detenerlos y salvar la ciudad?",
+   "detailUrl": null
+  },
+  {
    "id": "m580489",
    "tmdbId": 580489,
    "title": "Venom: Carnage Liberado",
@@ -2259,7 +2764,7 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "disney",
    "platforms": [
     "disney"
    ],
@@ -2267,8 +2772,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/w4EJRJNyKcMQns8dUbBeKayi9DT.jpg",
    "synopsis": "Para alimentar la ciudad, los monstruos tienen que asustar a los niños para que griten. Sin embargo, los niños son tóxicos para los…",
    "overview": "Para alimentar la ciudad, los monstruos tienen que asustar a los niños para que griten. Sin embargo, los niños son tóxicos para los monstruos, y después de que un niño pasa, dos monstruos se dan cuenta de que las cosas pueden no ser lo que ellos piensan.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m603",
@@ -2381,7 +2885,7 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "prime",
    "platforms": [
     "prime",
     "max"
@@ -2390,8 +2894,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/kNNtiEp5qktfRjiwjkRq8WLmF40.jpg",
    "synopsis": "Al cumplir los once años, Harry Potter descubre que es un mago y que es hijo de dos destacados hechiceros. Mientras estudia en la escuela…",
    "overview": "Al cumplir los once años, Harry Potter descubre que es un mago y que es hijo de dos destacados hechiceros. Mientras estudia en la escuela Hogwarts de Magia y Hechicería, poco a poco descubre más la verdad sobre la muerte de sus padres hechiceros.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "m672",
@@ -2433,48 +2936,6 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/d7lK3K1QWmcgjHyRMBV3rT2yzTM.jpg",
    "synopsis": "Harry Potter se prepara para ir a Hogwarts cuando recibe a un elfo doméstico llamado Dobby, quién le advierte que corre en un gran…",
    "overview": "Harry Potter se prepara para ir a Hogwarts cuando recibe a un elfo doméstico llamado Dobby, quién le advierte que corre en un gran peligro. Llegando a la escuela, sucesos inquietantes motiva a Harry y sus amigos, Ron y Hermione, a investigar lo que está sucediendo en Hogwarts.",
-   "detailUrl": null
-  },
-  {
-   "id": "m673",
-   "tmdbId": 673,
-   "title": "Harry Potter y el prisionero de Azkaban",
-   "tags": [
-    "aventura",
-    "fantasía",
-    "amistad",
-    "basada en libro",
-    "magia"
-   ],
-   "type": "movie",
-   "year": 2004,
-   "durationMin": 142,
-   "rating": 8,
-   "popularity": 29,
-   "certification": "MX:A",
-   "genres": [
-    "Aventura",
-    "Fantasía"
-   ],
-   "moods": [
-    "adrenalina",
-    "miedito"
-   ],
-   "attention": "high",
-   "audience": [
-    "solo",
-    "amigos",
-    "familia"
-   ],
-   "source": "prime",
-   "platforms": [
-    "prime",
-    "max"
-   ],
-   "posterPath": "/xBph7rrwtxUuDxyZVDQtbP2H0sM.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/xBph7rrwtxUuDxyZVDQtbP2H0sM.jpg",
-   "synopsis": "Durante sus días en la escuela Hogwarts, nuevos peligros se le presentan a Harry y sus amigos. La llegada de los Dementores, seres que…",
-   "overview": "Durante sus días en la escuela Hogwarts, nuevos peligros se le presentan a Harry y sus amigos. La llegada de los Dementores, seres que absorben el alma, un peligroso aliado acecha dentro de los muros del castillo y el temible mago Sirius Black escapa Azkaban.",
    "detailUrl": null
   },
   {
@@ -2545,7 +3006,7 @@ window.TP_CATALOG = {
    "audience": [
     "solo"
    ],
-   "source": "prime",
+   "source": "totalplay",
    "platforms": [
     "prime"
    ],
@@ -2553,7 +3014,8 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/fjgSlNGECNgVeMJaOdDAXmGh7ZM.jpg",
    "synopsis": "Will Radford, un destacado analista de ciberseguridad, pasa sus días rastreando posibles amenazas a la seguridad nacional a través de un…",
    "overview": "Will Radford, un destacado analista de ciberseguridad, pasa sus días rastreando posibles amenazas a la seguridad nacional a través de un programa de vigilancia masiva. Un ataque de una entidad desconocida le lleva a cuestionarse si el gobierno le está ocultando algo a él... y al resto del mundo.",
-   "detailUrl": null
+   "detailUrl": null,
+   "demo": true
   },
   {
    "id": "m76341",
@@ -2599,6 +3061,83 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "m766319",
+   "tmdbId": 766319,
+   "title": "Mariah Carey: Una Navidad mágica",
+   "tags": [
+    "familia",
+    "música"
+   ],
+   "type": "movie",
+   "year": 2020,
+   "durationMin": 43,
+   "rating": 6.2,
+   "popularity": 5,
+   "certification": "MX:A",
+   "genres": [
+    "Familia",
+    "Música"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "appletv",
+   "platforms": [
+    "appletv"
+   ],
+   "posterPath": "/iCidGRjCuAkhH55evCto8QSMyJM.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/iCidGRjCuAkhH55evCto8QSMyJM.jpg",
+   "synopsis": "La misión de Santa Claus está a punto de fallar, y todo porque el espíritu navideño está en crisis. Sólo una persona puede salvar la…",
+   "overview": "La misión de Santa Claus está a punto de fallar, y todo porque el espíritu navideño está en crisis. Sólo una persona puede salvar la situación: su gran amiga Mariah Carey. La reina de la Navidad trae para ti un especial con invitados estrella.",
+   "detailUrl": null
+  },
+  {
+   "id": "m774752",
+   "tmdbId": 774752,
+   "title": "Guardianes de la Galaxia: Especial de las fiestas",
+   "tags": [
+    "comedia",
+    "ciencia ficción",
+    "aventura",
+    "superhéroes",
+    "navidad"
+   ],
+   "type": "movie",
+   "year": 2022,
+   "durationMin": 45,
+   "rating": 7.1,
+   "popularity": 8,
+   "certification": "US:PG-13",
+   "genres": [
+    "Comedia",
+    "Ciencia ficción",
+    "Aventura"
+   ],
+   "moods": [
+    "reir",
+    "pensar"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos"
+   ],
+   "source": "disney",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/9D6hFa4TGdqCVE7x9Zec9VdaF2X.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/9D6hFa4TGdqCVE7x9Zec9VdaF2X.jpg",
+   "synopsis": "Con la misión de darle a Quill una Navidad inolvidable, los Guardianes viajan a la Tierra en busca del regalo perfecto.",
+   "overview": "Con la misión de darle a Quill una Navidad inolvidable, los Guardianes viajan a la Tierra en busca del regalo perfecto.",
+   "detailUrl": null
+  },
+  {
    "id": "m786892",
    "tmdbId": 786892,
    "title": "Furiosa: De la saga Mad Max",
@@ -2637,6 +3176,46 @@ window.TP_CATALOG = {
    "synopsis": "Mientras el mundo se derrumba, la joven Furiosa es secuestrada del Lugar Verde de Muchas Madres y cae en manos de una Horda de…",
    "overview": "Mientras el mundo se derrumba, la joven Furiosa es secuestrada del Lugar Verde de Muchas Madres y cae en manos de una Horda de Motociclistas liderada por el Señor de la Guerra Dementus. Recorriendo la tierra baldía llega a la Ciudadela, presidida por Inmortan Joe. Mientras los dos tiranos luchan por el dominio de la zona, Furiosa deberá sobrevivir a muchas pruebas buscando volver a casa",
    "detailUrl": null
+  },
+  {
+   "id": "m79218",
+   "tmdbId": 79218,
+   "title": "La Era de Hielo: Una Navidad tamaño mamut",
+   "tags": [
+    "animación",
+    "familia",
+    "película de tv",
+    "navidad"
+   ],
+   "type": "movie",
+   "year": 2011,
+   "durationMin": 26,
+   "rating": 6.5,
+   "popularity": 5,
+   "certification": "US:PG",
+   "genres": [
+    "Animación",
+    "Familia",
+    "Película de TV"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/4LLMtSfy6Ga9ryOvCzzggZJlpaU.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/4LLMtSfy6Ga9ryOvCzzggZJlpaU.jpg",
+   "synopsis": "Cuando Sid accidentalmente destruye la reliquia navideña de Manny y termina en la lista traviesa de Santa Claus, dirige una divertida…",
+   "overview": "Cuando Sid accidentalmente destruye la reliquia navideña de Manny y termina en la lista traviesa de Santa Claus, dirige una divertida aventura al Polo Norte para arreglar las cosas y termina empeorando las cosas. Ahora le toca a Manny y su grupo prehistórico unirse y salvar la Navidad para todo el mundo.",
+   "detailUrl": null,
+   "demo": true
   },
   {
    "id": "m807",
@@ -2679,26 +3258,25 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
-   "id": "m862",
-   "tmdbId": 862,
-   "title": "Toy Story",
+   "id": "m82881",
+   "tmdbId": 82881,
+   "title": "Enredados Por Siempre",
    "tags": [
-    "familia",
-    "comedia",
     "animación",
-    "aventura",
-    "amistad"
+    "comedia",
+    "acción",
+    "familia"
    ],
    "type": "movie",
-   "year": 1995,
-   "durationMin": 81,
-   "rating": 8,
-   "popularity": 25,
-   "certification": "MX:AA",
+   "year": 2012,
+   "durationMin": 6,
+   "rating": 7.1,
+   "popularity": 5,
+   "certification": "US:G",
    "genres": [
-    "Familia",
+    "Animación",
     "Comedia",
-    "Animación"
+    "Acción"
    ],
    "moods": [
     "reir",
@@ -2714,32 +3292,31 @@ window.TP_CATALOG = {
    "platforms": [
     "disney"
    ],
-   "posterPath": "/p05ZMpMiigegGLqS5XxnmyG15iH.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/p05ZMpMiigegGLqS5XxnmyG15iH.jpg",
-   "synopsis": "Un muñeco vaquero se siente profundamente amenazado y celoso cuando una nueva figura del hombre del espacio lo suplanta como juguete…",
-   "overview": "Un muñeco vaquero se siente profundamente amenazado y celoso cuando una nueva figura del hombre del espacio lo suplanta como juguete principal en el cuarto de un niño.",
+   "posterPath": "/2eTiPSDSN5CJXZbk99pb07QuN5K.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/2eTiPSDSN5CJXZbk99pb07QuN5K.jpg",
+   "synopsis": "Es el día de la boda de Rapunzel y Flynn, pero Pascal and Maximus pierden los anillos a mitad de la ceremonia, ellos deben recuperarlos.",
+   "overview": "Es el día de la boda de Rapunzel y Flynn, pero Pascal and Maximus pierden los anillos a mitad de la ceremonia, ellos deben recuperarlos.",
    "detailUrl": null
   },
   {
-   "id": "m863",
-   "tmdbId": 863,
-   "title": "Toy Story 2",
+   "id": "m881211",
+   "tmdbId": 881211,
+   "title": "Snoopy presenta: Por los viejos tiempos",
    "tags": [
     "animación",
-    "comedia",
     "familia",
-    "amistad"
+    "comedia"
    ],
    "type": "movie",
-   "year": 1999,
-   "durationMin": 99,
-   "rating": 7.6,
-   "popularity": 26,
-   "certification": "MX:AA",
+   "year": 2021,
+   "durationMin": 38,
+   "rating": 7.2,
+   "popularity": 6,
+   "certification": "MX:A",
    "genres": [
     "Animación",
-    "Comedia",
-    "Familia"
+    "Familia",
+    "Comedia"
    ],
    "moods": [
     "reir"
@@ -2750,15 +3327,16 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "disney",
+   "source": "totalplay",
    "platforms": [
-    "disney"
+    "appletv"
    ],
-   "posterPath": "/ig04sol7lYflNuEsoAjKGjf5hIL.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/ig04sol7lYflNuEsoAjKGjf5hIL.jpg",
-   "synopsis": "Cuando Woody es robado por un coleccionista de juguetes, Buzz y sus amigos emprenden una misión de rescate para salvar a Woody antes de…",
-   "overview": "Cuando Woody es robado por un coleccionista de juguetes, Buzz y sus amigos emprenden una misión de rescate para salvar a Woody antes de que se convierta en una propiedad de un museo de juguetes con su pandilla de redadas Jessie, el oloroso Pete y Tiro al blanco.",
-   "detailUrl": null
+   "posterPath": "/hZPHo3miiG0Xc8VyGvzGkkC6mkh.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/hZPHo3miiG0Xc8VyGvzGkkC6mkh.jpg",
+   "synopsis": "Tras enterarse de que su abuela no los visitará en Navidad, Lucy decide darse ánimos haciendo la mejor de las fiestas de Año Nuevo.…",
+   "overview": "Tras enterarse de que su abuela no los visitará en Navidad, Lucy decide darse ánimos haciendo la mejor de las fiestas de Año Nuevo. Mientras tanto, Charlie Brown intenta cumplir uno de sus propósitos antes de que el reloj marque la medianoche.",
+   "detailUrl": null,
+   "demo": true
   },
   {
    "id": "m8966",
@@ -2831,7 +3409,7 @@ window.TP_CATALOG = {
     "pareja",
     "amigos"
    ],
-   "source": "totalplay",
+   "source": "appletv",
    "platforms": [
     "appletv"
    ],
@@ -2839,6 +3417,47 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/yKIG63pXN89EfbTA7yKpwxAU1rf.jpg",
    "synopsis": "El piloto legendario Sonny Hayes es convencido de salir de su retiro para liderar a un equipo de la Fórmula 1 en dificultades y ser mentor…",
    "overview": "El piloto legendario Sonny Hayes es convencido de salir de su retiro para liderar a un equipo de la Fórmula 1 en dificultades y ser mentor de un joven piloto talentoso, mientras se busca una última oportunidad de gloria.",
+   "detailUrl": null
+  },
+  {
+   "id": "m923939",
+   "tmdbId": 923939,
+   "title": "La maravillosa historia de Henry Sugar",
+   "tags": [
+    "fantasía",
+    "comedia",
+    "aventura",
+    "basada en libro"
+   ],
+   "type": "movie",
+   "year": 2023,
+   "durationMin": 39,
+   "rating": 7.3,
+   "popularity": 5,
+   "certification": "US:PG",
+   "genres": [
+    "Fantasía",
+    "Comedia",
+    "Aventura"
+   ],
+   "moods": [
+    "reir",
+    "adrenalina"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "netflix"
+   ],
+   "posterPath": "/5oeLyShu9JK7C8U57xF00zuTovf.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/5oeLyShu9JK7C8U57xF00zuTovf.jpg",
+   "synopsis": "Un hombre rico aprende acerca de un gurú que puede ver sin usar los ojos. Se propone dominar la habilidad para hacer trampa en el juego.",
+   "overview": "Un hombre rico aprende acerca de un gurú que puede ver sin usar los ojos. Se propone dominar la habilidad para hacer trampa en el juego.",
    "detailUrl": null,
    "demo": true
   },
@@ -2966,84 +3585,48 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
-   "id": "m950396",
-   "tmdbId": 950396,
-   "title": "El abismo secreto",
+   "id": "m995133",
+   "tmdbId": 995133,
+   "title": "El niño, el topo, el zorro y el caballo",
    "tags": [
-    "romance",
-    "ciencia ficción",
-    "suspense"
+    "animación",
+    "familia",
+    "drama",
+    "aventura",
+    "amistad"
    ],
    "type": "movie",
-   "year": 2025,
-   "durationMin": 128,
-   "rating": 7.7,
-   "popularity": 17,
-   "certification": "MX:B",
+   "year": 2022,
+   "durationMin": 35,
+   "rating": 8.2,
+   "popularity": 7,
+   "certification": "MX:A",
    "genres": [
-    "Romance",
-    "Ciencia ficción",
-    "Suspense"
+    "Animación",
+    "Familia",
+    "Drama"
    ],
    "moods": [
     "emocionarme",
-    "pensar"
+    "adrenalina"
    ],
-   "attention": "high",
+   "attention": "low",
    "audience": [
     "solo",
-    "pareja"
+    "pareja",
+    "amigos",
+    "familia"
    ],
-   "source": "appletv",
+   "source": "totalplay",
    "platforms": [
     "appletv"
    ],
-   "posterPath": "/3s0jkMh0YUhIeIeioH3kt2X4st4.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/3s0jkMh0YUhIeIeioH3kt2X4st4.jpg",
-   "synopsis": "Dos agentes altamente entrenados se unen a la distancia tras ser enviados a proteger bordes opuestos de un abismo misterioso. Cuando la…",
-   "overview": "Dos agentes altamente entrenados se unen a la distancia tras ser enviados a proteger bordes opuestos de un abismo misterioso. Cuando la maldad emerge de él, tienen que trabajar juntos para sobrevivir a lo que yace dentro del abismo.",
-   "detailUrl": null
-  },
-  {
-   "id": "m99861",
-   "tmdbId": 99861,
-   "title": "Avengers 2: Era de Ultrón",
-   "tags": [
-    "acción",
-    "aventura",
-    "ciencia ficción",
-    "superhéroes",
-    "cómic"
-   ],
-   "type": "movie",
-   "year": 2015,
-   "durationMin": 141,
-   "rating": 7.3,
-   "popularity": 35,
-   "certification": "MX:B",
-   "genres": [
-    "Acción",
-    "Aventura",
-    "Ciencia ficción"
-   ],
-   "moods": [
-    "adrenalina",
-    "pensar"
-   ],
-   "attention": "high",
-   "audience": [
-    "solo",
-    "amigos"
-   ],
-   "source": "disney",
-   "platforms": [
-    "disney"
-   ],
-   "posterPath": "/ggyEm4OkePLo8zEdDm5Pac2fOgz.jpg",
-   "posterUrl": "https://image.tmdb.org/t/p/w342/ggyEm4OkePLo8zEdDm5Pac2fOgz.jpg",
-   "synopsis": "Cuando Tony Stark y Bruce Banner intentan poner en marcha un inactivo programa de mantenimiento de la paz llamado Ultrón, las cosas van…",
-   "overview": "Cuando Tony Stark y Bruce Banner intentan poner en marcha un inactivo programa de mantenimiento de la paz llamado Ultrón, las cosas van terriblemente mal y depende de los héroes más poderosos de la Tierra evitar que el villano Ultrón lleve a cabo su terrible plan.",
-   "detailUrl": null
+   "posterPath": "/r3HDy6DZVQoyAoJJounELXfNBHq.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/r3HDy6DZVQoyAoJJounELXfNBHq.jpg",
+   "synopsis": "Narra la improbable amistad de un niño, un topo, un zorro y un caballo que viajan juntos buscando el hogar del niño. Basada en el libro de…",
+   "overview": "Narra la improbable amistad de un niño, un topo, un zorro y un caballo que viajan juntos buscando el hogar del niño. Basada en el libro de Charlie Mackesy.",
+   "detailUrl": null,
+   "demo": true
   },
   {
    "id": "s108978",
@@ -3354,6 +3937,84 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "s1405",
+   "tmdbId": 1405,
+   "title": "Dexter",
+   "tags": [
+    "crimen",
+    "drama",
+    "misterio",
+    "basada en libro",
+    "asesinato"
+   ],
+   "type": "series",
+   "year": 2006,
+   "durationMin": 60,
+   "rating": 8.2,
+   "popularity": 129,
+   "certification": "MX:C",
+   "genres": [
+    "Crimen",
+    "Drama",
+    "Misterio"
+   ],
+   "moods": [
+    "adrenalina",
+    "emocionarme"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "pareja"
+   ],
+   "source": "paramount",
+   "platforms": [
+    "paramount"
+   ],
+   "posterPath": "/4uHT4OKnaa6o8xcE5EdFuy3GavQ.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/4uHT4OKnaa6o8xcE5EdFuy3GavQ.jpg",
+   "synopsis": "Dexter Morgan, un analista de patrones de salpicaduras de sangre de la Policía Metropolitana de Miami, también lleva una vida secreta como…",
+   "overview": "Dexter Morgan, un analista de patrones de salpicaduras de sangre de la Policía Metropolitana de Miami, también lleva una vida secreta como asesino en serie, persiguiendo a criminales que han escapado a la justicia.",
+   "detailUrl": null
+  },
+  {
+   "id": "s1408",
+   "tmdbId": 1408,
+   "title": "Dr. House",
+   "tags": [
+    "drama"
+   ],
+   "type": "series",
+   "year": 2004,
+   "durationMin": 44,
+   "rating": 8.6,
+   "popularity": 2424,
+   "certification": "MX:B",
+   "genres": [
+    "Drama"
+   ],
+   "moods": [
+    "emocionarme"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "pareja"
+   ],
+   "source": "netflix",
+   "platforms": [
+    "netflix",
+    "prime",
+    "disney",
+    "max"
+   ],
+   "posterPath": "/8yG2CZwRfZAkIGVLhy8aW1VXTJX.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/8yG2CZwRfZAkIGVLhy8aW1VXTJX.jpg",
+   "synopsis": "El Dr. Gregory House, un genio médico misántropo, poco convencional y adicto a las drogas, lidera un equipo de diagnosticadores en el…",
+   "overview": "El Dr. Gregory House, un genio médico misántropo, poco convencional y adicto a las drogas, lidera un equipo de diagnosticadores en el ficticio Hospital Universitario Princeton-Plainsboro en Nueva Jersey.",
+   "detailUrl": null
+  },
+  {
    "id": "s1411",
    "tmdbId": 1411,
    "title": "Person of Interest",
@@ -3488,7 +4149,7 @@ window.TP_CATALOG = {
    ],
    "type": "series",
    "year": 2005,
-   "durationMin": 44,
+   "durationMin": 45,
    "rating": 8.2,
    "popularity": 601,
    "certification": "MX:B",
@@ -3742,7 +4403,7 @@ window.TP_CATALOG = {
     "pareja",
     "amigos"
    ],
-   "source": "totalplay",
+   "source": "netflix",
    "platforms": [
     "netflix"
    ],
@@ -3750,8 +4411,49 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/3UymnlLfLMKxG8OcFhSnAlnhQfZ.jpg",
    "synopsis": "Un equipo de hombres y mujeres comprometidos con la investigación de crímenes lo arriesgará todo para resolver los más oscuros casos de…",
    "overview": "Un equipo de hombres y mujeres comprometidos con la investigación de crímenes lo arriesgará todo para resolver los más oscuros casos de Bombay.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
+  },
+  {
+   "id": "s15260",
+   "tmdbId": 15260,
+   "title": "Hora de Aventura",
+   "tags": [
+    "animación",
+    "comedia",
+    "sci-fi & fantasy",
+    "magia",
+    "vampiros"
+   ],
+   "type": "series",
+   "year": 2010,
+   "durationMin": 11,
+   "rating": 8.5,
+   "popularity": 101,
+   "certification": "MX:AA",
+   "genres": [
+    "Animación",
+    "Comedia",
+    "Sci-Fi & Fantasy"
+   ],
+   "moods": [
+    "reir",
+    "miedito"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "max",
+   "platforms": [
+    "max"
+   ],
+   "posterPath": "/1TfTfqF9tMfI94kukgBeqFhd7Et.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/1TfTfqF9tMfI94kukgBeqFhd7Et.jpg",
+   "synopsis": "¡No son justos, son injustos! Conéctate con Finn y Jake mientras viajan por la Tierra de Ooo en busca de aventuras. Pero recuerda, la…",
+   "overview": "¡No son justos, son injustos! Conéctate con Finn y Jake mientras viajan por la Tierra de Ooo en busca de aventuras. Pero recuerda, la aventura no siempre es fácil. A veces tienes que luchar contra los gnomos de fuego que torturan a las ancianas, salvar a una princesa maloliente del Rey Helado y descongelar a un grupo de hombres de negocios congelados. ¡¿Qué repollo ?!",
+   "detailUrl": null
   },
   {
    "id": "s1620",
@@ -3839,6 +4541,48 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
+   "id": "s17610",
+   "tmdbId": 17610,
+   "title": "NCIS: Los Ángeles",
+   "tags": [
+    "action & adventure",
+    "drama",
+    "crimen",
+    "misterio"
+   ],
+   "type": "series",
+   "year": 2009,
+   "durationMin": 45,
+   "rating": 7.5,
+   "popularity": 111,
+   "certification": "MX:AA",
+   "genres": [
+    "Action & Adventure",
+    "Drama",
+    "Crimen"
+   ],
+   "moods": [
+    "adrenalina",
+    "emocionarme"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "pareja",
+    "amigos",
+    "familia"
+   ],
+   "source": "paramount",
+   "platforms": [
+    "paramount"
+   ],
+   "posterPath": "/TIIgcznwNfNr3KOZvxn26eKV99.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/TIIgcznwNfNr3KOZvxn26eKV99.jpg",
+   "synopsis": "Spin-off de 'NCIS' protagonizada por los agentes especiales \"G\" Callen (Chris O'Donnell), un misterioso y camaleónico agente con una gran…",
+   "overview": "Spin-off de 'NCIS' protagonizada por los agentes especiales \"G\" Callen (Chris O'Donnell), un misterioso y camaleónico agente con una gran capacidad de transformación, y Sam Hanna (LL Cool J), un antiguo marine SEAL con experiencia en las guerras de Afghanistan e Irak. La serie se centra en una rama de los NCIS llamada OPS, que opera en Los Ángeles y utiliza alta tecnología para detener a los enemigos de los Estados Unidos.",
+   "detailUrl": null
+  },
+  {
    "id": "s18165",
    "tmdbId": 18165,
    "title": "Diarios de Vampiros",
@@ -3878,6 +4622,47 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/1OCPmsMsO43FKiJ3XNaXwwZM1Wn.jpg",
    "synopsis": "La trama gira en torno a la vida de Elena, sus amigos y otros habitantes de una pequeña ciudad de Virginia, llamada Mystic Falls. Elena…",
    "overview": "La trama gira en torno a la vida de Elena, sus amigos y otros habitantes de una pequeña ciudad de Virginia, llamada Mystic Falls. Elena Gilbert (Nina Dobrev), es una adolescente de la cual se enamoran dos hermanos vampiros, Stefan Salvatore (Paul Wesley), y su hermano Damon Salvatore (Ian Somerhalder). Elena es idéntica a Katherine, la mujer que los convirtió en vampiros y que jugó con el amor que ambos sentían por ella.",
+   "detailUrl": null
+  },
+  {
+   "id": "s1877",
+   "tmdbId": 1877,
+   "title": "Phineas y Ferb",
+   "tags": [
+    "animación",
+    "comedia",
+    "familia",
+    "sci-fi & fantasy"
+   ],
+   "type": "series",
+   "year": 2007,
+   "durationMin": 12,
+   "rating": 7.9,
+   "popularity": 2561,
+   "certification": "MX:A",
+   "genres": [
+    "Animación",
+    "Comedia",
+    "Familia"
+   ],
+   "moods": [
+    "reir",
+    "pensar"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "disney",
+   "platforms": [
+    "disney"
+   ],
+   "posterPath": "/vO5SGen5sf8ooqXG99f1MohvcfV.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/vO5SGen5sf8ooqXG99f1MohvcfV.jpg",
+   "synopsis": "En el pequeño pueblo de Danville, Phineas y Ferb, dos medio hermanos, se dedican a buscar una idea novedosa y excitante para disfrutar más…",
+   "overview": "En el pequeño pueblo de Danville, Phineas y Ferb, dos medio hermanos, se dedican a buscar una idea novedosa y excitante para disfrutar más las vacaciones.",
    "detailUrl": null
   },
   {
@@ -4270,6 +5055,45 @@ window.TP_CATALOG = {
    "detailUrl": null
   },
   {
+   "id": "s248830",
+   "tmdbId": 248830,
+   "title": "Stick: El swing perfecto",
+   "tags": [
+    "comedia",
+    "drama",
+    "adolescentes"
+   ],
+   "type": "series",
+   "year": 2025,
+   "durationMin": 35,
+   "rating": 7.3,
+   "popularity": 43,
+   "certification": "MX:B-15",
+   "genres": [
+    "Comedia",
+    "Drama"
+   ],
+   "moods": [
+    "reir",
+    "emocionarme"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "pareja",
+    "amigos"
+   ],
+   "source": "appletv",
+   "platforms": [
+    "appletv"
+   ],
+   "posterPath": "/wcXTqtk5xB7ppnAeCTaXOt0YBem.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/wcXTqtk5xB7ppnAeCTaXOt0YBem.jpg",
+   "synopsis": "Pryce Cahill estaba destinado al éxito cuando un colapso desvió su carrera. Ahora esforzándose por sobrevivir, apuesta todo para entrenar…",
+   "overview": "Pryce Cahill estaba destinado al éxito cuando un colapso desvió su carrera. Ahora esforzándose por sobrevivir, apuesta todo para entrenar a Santi, un joven talentoso con un inmenso potencial, y así poder enderezar su vida.",
+   "detailUrl": null
+  },
+  {
    "id": "s250307",
    "tmdbId": 250307,
    "title": "The Pitt",
@@ -4418,6 +5242,83 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/sBR2LYNbgtnA76fbIO2AuX8duXD.jpg",
    "synopsis": "Charlie Harper un soltero que tiene todo lo que un hombre necesita: Dinero, un jaguar en el garaje y mujeres. Su informal estilo de vida…",
    "overview": "Charlie Harper un soltero que tiene todo lo que un hombre necesita: Dinero, un jaguar en el garaje y mujeres. Su informal estilo de vida en Malibú, es interrupida drásticamente con la llegada de su hermano Alan quien está muy deprimido tras afrontar un divorcio, y de su hijo de 10 años, Jake, que se mudan para quedarse a vivir con él. De este modo, juntos inician un camino en el que deben afrontar los retos e ir madurando poco a poco.",
+   "detailUrl": null
+  },
+  {
+   "id": "s273240",
+   "tmdbId": 273240,
+   "title": "Off Campus",
+   "tags": [
+    "drama",
+    "basada en libro",
+    "amor",
+    "romance"
+   ],
+   "type": "series",
+   "year": 2026,
+   "durationMin": 55,
+   "rating": 8.9,
+   "popularity": 50,
+   "certification": "US:TV-MA",
+   "genres": [
+    "Drama"
+   ],
+   "moods": [
+    "emocionarme"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "pareja"
+   ],
+   "source": "prime",
+   "platforms": [
+    "prime"
+   ],
+   "posterPath": "/pI4sEVVbswtyOL2uaFxZs2tPOnQ.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/pI4sEVVbswtyOL2uaFxZs2tPOnQ.jpg",
+   "synopsis": "Hannah Wells acepta darle clases particulares a Garrett Graham, el capitán del equipo de hockey, para conquistar al chico que le gusta. Lo…",
+   "overview": "Hannah Wells acepta darle clases particulares a Garrett Graham, el capitán del equipo de hockey, para conquistar al chico que le gusta. Lo que empieza como un simple acuerdo se convierte en una conexión real mientras ambos enfrentan su pasado. Mientras tanto, sus amigos Logan, Dean, Tucker y Allie viven sus propias aventuras entre romances y la vida universitaria.",
+   "detailUrl": null
+  },
+  {
+   "id": "s274556",
+   "tmdbId": 274556,
+   "title": "Lejos De Ti",
+   "tags": [
+    "drama",
+    "familia",
+    "action & adventure"
+   ],
+   "type": "series",
+   "year": 2024,
+   "durationMin": 140,
+   "rating": 8.5,
+   "popularity": 56,
+   "certification": null,
+   "genres": [
+    "Drama",
+    "Familia",
+    "Action & Adventure"
+   ],
+   "moods": [
+    "emocionarme",
+    "adrenalina"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "pareja",
+    "amigos"
+   ],
+   "source": "max",
+   "platforms": [
+    "max"
+   ],
+   "posterPath": "/bwf5Q9gRg791Tb0dylroBTYYJsM.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/bwf5Q9gRg791Tb0dylroBTYYJsM.jpg",
+   "synopsis": "Cuando Alya llega a Albora para enterrar a su marido, debe proteger a su hijo de una poderosa familia impulsada por la venganza y reclamar…",
+   "overview": "Cuando Alya llega a Albora para enterrar a su marido, debe proteger a su hijo de una poderosa familia impulsada por la venganza y reclamar su libertad.",
    "detailUrl": null
   },
   {
@@ -4733,7 +5634,7 @@ window.TP_CATALOG = {
     "solo",
     "amigos"
    ],
-   "source": "netflix",
+   "source": "totalplay",
    "platforms": [
     "netflix",
     "disney",
@@ -4743,7 +5644,8 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/sGuCmIy8kEmx3FWZyMj654rF6g8.jpg",
    "synopsis": "Edición «mejorada» de Dragon Ball Super que incluye una gran cantidad de escenas nuevas y redibujadas, una narrativa reconstruida y un…",
    "overview": "Edición «mejorada» de Dragon Ball Super que incluye una gran cantidad de escenas nuevas y redibujadas, una narrativa reconstruida y un apartado visual actualizado para ofrecer una representación más fiel e inmersiva del manga original de Akira Toriyama.",
-   "detailUrl": null
+   "detailUrl": null,
+   "demo": true
   },
   {
    "id": "s31910",
@@ -5362,6 +6264,83 @@ window.TP_CATALOG = {
    "demo": true
   },
   {
+   "id": "s46260",
+   "tmdbId": 46260,
+   "title": "Naruto",
+   "tags": [
+    "animación",
+    "action & adventure",
+    "sci-fi & fantasy",
+    "anime"
+   ],
+   "type": "series",
+   "year": 2002,
+   "durationMin": 24,
+   "rating": 8.4,
+   "popularity": 86,
+   "certification": "MX:AA",
+   "genres": [
+    "Animación",
+    "Action & Adventure",
+    "Sci-Fi & Fantasy"
+   ],
+   "moods": [
+    "adrenalina",
+    "pensar"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos",
+    "familia"
+   ],
+   "source": "netflix",
+   "platforms": [
+    "netflix",
+    "disney"
+   ],
+   "posterPath": "/oOkvQ1anSMvdYbUGGf7NAnfwHUt.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/oOkvQ1anSMvdYbUGGf7NAnfwHUt.jpg",
+   "synopsis": "Narra la historia de un ninja adolescente hiperactivo, impredecible y ruidoso llamado Naruto Uzumaki, quien aspira a convertirse…",
+   "overview": "Narra la historia de un ninja adolescente hiperactivo, impredecible y ruidoso llamado Naruto Uzumaki, quien aspira a convertirse afanosamente en Hokage, el máximo grado ninja en su aldea, con el propósito de ser reconocido como alguien importante dentro de la misma.",
+   "detailUrl": null
+  },
+  {
+   "id": "s4656",
+   "tmdbId": 4656,
+   "title": "WWE Raw",
+   "tags": [
+    "reality"
+   ],
+   "type": "series",
+   "year": 1993,
+   "durationMin": 154,
+   "rating": 6.8,
+   "popularity": 270,
+   "certification": "MX:A",
+   "genres": [
+    "Reality"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "netflix"
+   ],
+   "posterPath": "/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
+   "synopsis": "WWE Raw, también conocido como Monday Night Raw, es un programa de televisión de entretenimiento deportivo de lucha libre profesional…",
+   "overview": "WWE Raw, también conocido como Monday Night Raw, es un programa de televisión de entretenimiento deportivo de lucha libre profesional producido por la WWE. Se ha transmitido sin interrupciones desde su estreno del 11 de enero de 1993 hasta la fecha, desde Estados Unidos por medio de la cadena USA Network",
+   "detailUrl": null,
+   "demo": true
+  },
+  {
    "id": "s48866",
    "tmdbId": 48866,
    "title": "Los 100",
@@ -5430,7 +6409,7 @@ window.TP_CATALOG = {
     "amigos",
     "familia"
    ],
-   "source": "totalplay",
+   "source": "netflix",
    "platforms": [
     "netflix",
     "max"
@@ -5439,6 +6418,82 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/23VG5Ryb9ET7JFoBwVstF0KglGT.jpg",
    "synopsis": "En una calle especial del centro de la ciudad, los habitantes —humanos y marionetas— enseñan a los niños en edad preescolar conceptos…",
    "overview": "En una calle especial del centro de la ciudad, los habitantes —humanos y marionetas— enseñan a los niños en edad preescolar conceptos educativos y sociales básicos mediante la comedia, los dibujos animados, los juegos y las canciones.",
+   "detailUrl": null
+  },
+  {
+   "id": "s549",
+   "tmdbId": 549,
+   "title": "La Ley y el Orden",
+   "tags": [
+    "crimen",
+    "drama",
+    "policías"
+   ],
+   "type": "series",
+   "year": 1990,
+   "durationMin": 42,
+   "rating": 7.3,
+   "popularity": 226,
+   "certification": "MX:AA",
+   "genres": [
+    "Crimen",
+    "Drama"
+   ],
+   "moods": [
+    "adrenalina",
+    "emocionarme"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "pareja",
+    "familia"
+   ],
+   "source": "prime",
+   "platforms": [
+    "prime"
+   ],
+   "posterPath": "/bvy6AowxJp5jGhEMlpwesFFYXBL.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/bvy6AowxJp5jGhEMlpwesFFYXBL.jpg",
+   "synopsis": "Serie sobre la investigación de crímenes en la ciudad de Nueva York. Policías y jueces son los principales protagonistas.",
+   "overview": "Serie sobre la investigación de crímenes en la ciudad de Nueva York. Policías y jueces son los principales protagonistas.",
+   "detailUrl": null
+  },
+  {
+   "id": "s57532",
+   "tmdbId": 57532,
+   "title": "Paw Patrol: Patrulla de Cachorros",
+   "tags": [
+    "animación",
+    "kids",
+    "perritos"
+   ],
+   "type": "series",
+   "year": 2013,
+   "durationMin": 23,
+   "rating": 7,
+   "popularity": 120,
+   "certification": "MX:AA",
+   "genres": [
+    "Animación",
+    "Kids"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "familia"
+   ],
+   "source": "totalplay",
+   "platforms": [
+    "netflix",
+    "paramount"
+   ],
+   "posterPath": "/aTDo8zoo3wOW789rWYfHT83ufJ9.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/aTDo8zoo3wOW789rWYfHT83ufJ9.jpg",
+   "synopsis": "Un grupo de seis perritos de rescate dirigidos por un chico experto en tecnología llamado Ryder, tienen muchas aventuras en su patrulla de…",
+   "overview": "Un grupo de seis perritos de rescate dirigidos por un chico experto en tecnología llamado Ryder, tienen muchas aventuras en su patrulla de cachorros, ningún trabajo es demasiado grande y ningún cachorro muy pequeño para proteger a la comunidad.",
    "detailUrl": null,
    "demo": true
   },
@@ -5553,7 +6608,7 @@ window.TP_CATALOG = {
     "solo",
     "amigos"
    ],
-   "source": "totalplay",
+   "source": "netflix",
    "platforms": [
     "netflix",
     "max"
@@ -5562,8 +6617,7 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/arSWOHGl9uQvhDrWjgyl3aaypca.jpg",
    "synopsis": "Rick Sánchez es un genio científico alcohólico que se ha mudado con la familia de su hija Beth. Él pasa el tiempo con su nieto adolescente…",
    "overview": "Rick Sánchez es un genio científico alcohólico que se ha mudado con la familia de su hija Beth. Él pasa el tiempo con su nieto adolescente Morty (y en ocasiones con otros miembros de la familia) en aventuras peligrosas y surrealistas a través del espacio y universos paralelos.",
-   "detailUrl": null,
-   "demo": true
+   "detailUrl": null
   },
   {
    "id": "s60735",
@@ -5975,6 +7029,124 @@ window.TP_CATALOG = {
    "posterUrl": "https://image.tmdb.org/t/p/w342/br3xWBUu7W0dXsMev0XXVvoMxuE.jpg",
    "synopsis": "Drama vertiginoso sobre el funcionamiento interno de la oficina de Nueva York del FBI. Estos agentes de primera clase, incluida la agente…",
    "overview": "Drama vertiginoso sobre el funcionamiento interno de la oficina de Nueva York del FBI. Estos agentes de primera clase, incluida la agente especial Maggie Bell (Missy Peregrym) y su compañero, el agente especial Omar Adom 'OA' Zidan (Zeeko Zaki), aportan todo su talento, intelecto y experiencia técnica para investigar con tenacidad casos de gran magnitud, incluidos terrorismo, crimen organizado y contrainteligencia, para mantener a salvo a Nueva York y al país.",
+   "detailUrl": null
+  },
+  {
+   "id": "s8514",
+   "tmdbId": 8514,
+   "title": "RuPaul: Carrera de drags",
+   "tags": [
+    "reality",
+    "competencia"
+   ],
+   "type": "series",
+   "year": 2009,
+   "durationMin": 60,
+   "rating": 7.5,
+   "popularity": 100,
+   "certification": "MX:B-15",
+   "genres": [
+    "Reality"
+   ],
+   "moods": [
+    "reir"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo"
+   ],
+   "source": "paramount",
+   "platforms": [
+    "paramount"
+   ],
+   "posterPath": "/ySs9xkTfPgQCUNB2ctOzcMWP14n.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/ySs9xkTfPgQCUNB2ctOzcMWP14n.jpg",
+   "synopsis": "Las reinas compiten por 100 000 dólares y el título de la próxima superestrella drag en este show ganador del Emmy y presentado por la…",
+   "overview": "Las reinas compiten por 100 000 dólares y el título de la próxima superestrella drag en este show ganador del Emmy y presentado por la reina madre, RuPaul.",
+   "detailUrl": null
+  },
+  {
+   "id": "s87917",
+   "tmdbId": 87917,
+   "title": "For All Mankind",
+   "tags": [
+    "drama",
+    "sci-fi & fantasy",
+    "war & politics",
+    "distopía"
+   ],
+   "type": "series",
+   "year": 2019,
+   "durationMin": 70,
+   "rating": 7.8,
+   "popularity": 48,
+   "certification": "MX:C",
+   "genres": [
+    "Drama",
+    "Sci-Fi & Fantasy",
+    "War & Politics"
+   ],
+   "moods": [
+    "emocionarme",
+    "pensar"
+   ],
+   "attention": "high",
+   "audience": [
+    "solo",
+    "pareja"
+   ],
+   "source": "appletv",
+   "platforms": [
+    "appletv"
+   ],
+   "posterPath": "/q5vmnIJvXJgstbjCW9Jxhd4GoRJ.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/q5vmnIJvXJgstbjCW9Jxhd4GoRJ.jpg",
+   "synopsis": "La serie explora lo que habría ocurrido si la carrera espacial mundial nunca hubiera terminado y la Unión Soviética hubiera conseguido…",
+   "overview": "La serie explora lo que habría ocurrido si la carrera espacial mundial nunca hubiera terminado y la Unión Soviética hubiera conseguido superar a Estados Unidos como el primer país en poner a un hombre en la Luna.",
+   "detailUrl": null
+  },
+  {
+   "id": "s95479",
+   "tmdbId": 95479,
+   "title": "Jujutsu Kaisen",
+   "tags": [
+    "animación",
+    "sci-fi & fantasy",
+    "action & adventure",
+    "sobrenatural",
+    "demonios"
+   ],
+   "type": "series",
+   "year": 2020,
+   "durationMin": 24,
+   "rating": 8.6,
+   "popularity": 101,
+   "certification": "US:TV-MA",
+   "genres": [
+    "Animación",
+    "Sci-Fi & Fantasy",
+    "Action & Adventure"
+   ],
+   "moods": [
+    "pensar",
+    "miedito"
+   ],
+   "attention": "low",
+   "audience": [
+    "solo",
+    "amigos"
+   ],
+   "source": "netflix",
+   "platforms": [
+    "netflix",
+    "prime",
+    "disney",
+    "max"
+   ],
+   "posterPath": "/zKFkzRn1UyE11Jv9CJjVmvmQFvR.jpg",
+   "posterUrl": "https://image.tmdb.org/t/p/w342/zKFkzRn1UyE11Jv9CJjVmvmQFvR.jpg",
+   "synopsis": "La vida de Itadori cambia para siempre cuando, para salvar a un compañero de clase, se come el dedo de Ryomen Sukuna y absorbe una…",
+   "overview": "La vida de Itadori cambia para siempre cuando, para salvar a un compañero de clase, se come el dedo de Ryomen Sukuna y absorbe una poderosa maldición.",
    "detailUrl": null
   },
   {

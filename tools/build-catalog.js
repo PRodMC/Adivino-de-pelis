@@ -23,7 +23,7 @@ var POSTER_DIR = path.join(ROOT, 'posters');
 var API = 'https://api.themoviedb.org/3';
 var LANG = 'es-MX';
 var REGION = 'MX';
-var PER_TYPE = 75;          // ~150 títulos, 50/50
+var PER_TYPE = 90;          // ~180 títulos, 50/50
 var DEMO_TOTALPLAY = 55;    // subconjunto SIMULADO si no hay CSV
 var PAUSE_MS = 260;
 var POSTER_SIZE = 'w342';
@@ -148,8 +148,10 @@ function discoverBuckets(providerMap) {
     });
     buckets.push({ name: 'familia', type: t, take: 12, params: q(Object.assign({ with_genres: t === 'movie' ? '10751' : '10751|10762' }, votes)) });
     if (t === 'movie') {
-      // Pelis cortas: respaldo para "Un ratito" cuando casi no hay películas de <= 45 min.
-      buckets.push({ name: 'peli-corta', type: t, take: 10, params: q(Object.assign({ 'with_runtime.lte': 95 }, votes)) });
+      // "Un ratito" + Película: cortos y especiales de <= 45 min (casi no salen por popularidad).
+      buckets.push({ name: 'peli-45', type: t, take: 17, params: q({ 'with_runtime.gte': 5, 'with_runtime.lte': 45, 'vote_count.gte': 10 }) });
+      buckets.push({ name: 'peli-45', type: t, take: 17, params: q({ 'with_runtime.gte': 5, 'with_runtime.lte': 45, 'vote_count.gte': 10, page: 2 }) });
+      buckets.push({ name: 'peli-corta', type: t, take: 8, params: q(Object.assign({ 'with_runtime.lte': 95 }, votes)) });
     }
     if (t === 'tv') {
       buckets.push({ name: 'corta30', type: t, take: 8, params: q(Object.assign({ 'with_runtime.lte': 30 }, votes)) });
@@ -253,6 +255,11 @@ function toItem(d, type, providerMap, allowNoPlatform) {
       else moods[1] = m;
     }
   });
+  if (!moods.length) {
+    for (var fm = 0; fm < genreIds.length && !moods.length; fm++) {
+      if (TAX.FALLBACK_MOOD[genreIds[fm]]) moods.push(TAX.FALLBACK_MOOD[genreIds[fm]]);
+    }
+  }
   if (!moods.length) return { skip: 'sin mood mapeable' };
 
   // tags: géneros finos (es-MX) + palabras clave traducidas, máx. 5
@@ -332,6 +339,8 @@ function selectBalanced(entries) {
       groups[e.bucket].push(e);
     });
     var taken = 0; var progressed = true;
+    // Prioridad: las películas de <= 45 min son escasas y sin ellas "Un ratito + Película" queda vacío.
+    (groups['peli-45:' + t] || []).splice(0, 20).forEach(function (e) { picked.push(e); taken++; });
     while (taken < PER_TYPE && progressed) {
       progressed = false;
       for (var i = 0; i < order.length && taken < PER_TYPE; i++) {

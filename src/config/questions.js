@@ -80,10 +80,11 @@
       }
     ],
     // Checkpoints de portadas: después de la pregunta con índice `after` (0-based).
+    // C1 tras Q3 (ya se sabe tiempo, tipo y atención) y C2 tras Q5 (ánimo y quién ve).
     // En los titulares, *texto* se pinta en dorado.
     checkpoints: [
       {
-        after: 1,
+        after: 2,
         headlines: [
           'Mmm… veo algo así en tu *futuro*. ¿Voy por buen camino?',
           'Veo… veo… algo así en tu *futuro*. ¿Le atino?',
@@ -91,7 +92,7 @@
         ]
       },
       {
-        after: 3,
+        after: 4,
         headlines: [
           'La imagen se *aclara*… ¿alguna de estas es lo tuyo?',
           'Ya te estoy *leyendo*… ¿alguna de estas?',

@@ -8,9 +8,8 @@
 (function (root) {
   var MAX_PER_CAROUSEL = 8;
   var MIN_RESULTS = 3;
+  // Duración máxima: filtro duro, nunca se relaja (si no te da tiempo de verla completa, no sale).
   var DURATION_MAX = { short: 45, normal: 135 };
-  // Último recurso (solo para llegar a 3): margen acotado, nunca "cualquier duración".
-  var DURATION_TOLERANCE = { short: 100, normal: 150 };
 
   // Pesos (Q4 > feedback elegido > Q3 = Q6 > Q5)
   var W = {
@@ -41,8 +40,8 @@
   // ---------- filtros ----------
   function passType(item, a) { return !a.type || a.type === 'any' || item.type === a.type; }
   function passFamily(item, a) { return a.audience !== 'familia' || has(item.audience, 'familia'); }
-  function passDuration(item, a, tolerant) {
-    var max = (tolerant ? DURATION_TOLERANCE : DURATION_MAX)[a.time];
+  function passDuration(item, a) {
+    var max = DURATION_MAX[a.time];
     return !max || item.durationMin <= max;
   }
   function passMood(item, a) { return !a.mood || has(item.moods, a.mood); }
@@ -64,13 +63,12 @@
     { mood: true, attention: true, novelty: 'loose', fill: true },
     { mood: true, attention: false, novelty: 'loose', fill: true },
     { mood: true, attention: false, novelty: false, fill: false },
-    { mood: false, attention: false, novelty: false, fill: false },
-    { mood: false, attention: false, novelty: false, tolerantDuration: true, fill: false }
+    { mood: false, attention: false, novelty: false, fill: false }
   ];
 
   function passLevel(item, a, level, ref) {
     if (!passType(item, a) || !passFamily(item, a)) return false;
-    if (!passDuration(item, a, level.tolerantDuration)) return false;
+    if (!passDuration(item, a)) return false;
     if (level.mood && !passMood(item, a)) return false;
     if (level.attention && !passAttention(item, a)) return false;
     if (level.novelty && !passNovelty(item, a, ref, level.novelty === 'loose')) return false;
@@ -207,22 +205,22 @@
     var byId = indexById(items);
     var ref = refYear(items);
 
-    function eligible(useDuration, useMood) {
+    // Tipo, duración y familia nunca se relajan: si no alcanza, se muestran menos de 3 portadas.
+    function eligible(useMood) {
       var out = [];
       for (var k = 0; k < items.length; k++) {
         var it = items[k];
         if (seen[it.id]) continue;
         if (!(it.source === 'totalplay' || onSubscriptions(it, subs))) continue;
         if (!passType(it, a) || !passFamily(it, a)) continue;
-        if (!passDuration(it, a, !useDuration)) continue;
+        if (!passDuration(it, a)) continue;
         if (useMood && !passMood(it, a)) continue;
         out.push(it);
       }
       return out;
     }
-    var pool = eligible(true, true);
-    if (pool.length < 3) pool = eligible(true, false);
-    if (pool.length < 3) pool = eligible(false, false);
+    var pool = eligible(true);
+    if (pool.length < 3) pool = eligible(false);
 
     // Tras "Ninguna": además de la penalización por moods/tags, se evita el mismo mood principal.
     var rejected = {};
