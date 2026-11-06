@@ -9,11 +9,13 @@
   var MAX_PER_CAROUSEL = 8;
   var MIN_RESULTS = 3;
   var DURATION_MAX = { short: 45, normal: 135 };
+  // Último recurso (solo para llegar a 3): margen acotado, nunca "cualquier duración".
+  var DURATION_TOLERANCE = { short: 100, normal: 150 };
 
   // Pesos (Q4 > feedback elegido > Q3 = Q6 > Q5)
   var W = {
-    moodPrimary: 10, moodSecondary: 7,
-    attention: 3, novelty: 3, audience: 2, rating: 0.2,
+    moodPrimary: 10, moodSecondary: 6,
+    attention: 3, novelty: 3, audience: 2, rating: 0.2, familyForAdults: -4,
     fbPickMood: 5, fbPickTag: 1.5, fbPickAudience: 1,
     fbNoneMood: -2, fbNoneTag: -0.5
   };
@@ -39,31 +41,39 @@
   // ---------- filtros ----------
   function passType(item, a) { return !a.type || a.type === 'any' || item.type === a.type; }
   function passFamily(item, a) { return a.audience !== 'familia' || has(item.audience, 'familia'); }
-  function passDuration(item, a) {
-    var max = DURATION_MAX[a.time];
+  function passDuration(item, a, tolerant) {
+    var max = (tolerant ? DURATION_TOLERANCE : DURATION_MAX)[a.time];
     return !max || item.durationMin <= max;
   }
+  function passMood(item, a) { return !a.mood || has(item.moods, a.mood); }
   function passAttention(item, a) { return !a.attention || item.attention === a.attention; }
-  function passNovelty(item, a, ref) {
-    if (a.novelty === 'classic') return item.year && ref - item.year >= 10;
-    if (a.novelty === 'new') return item.year && ref - item.year <= 3;
+  // strict: lo que pide la respuesta; loose: rango cercano para completar el carrusel.
+  function passNovelty(item, a, ref, loose) {
+    var age = ref - item.year;
+    if (a.novelty === 'classic') return !!item.year && (loose ? age >= 8 : (age >= 15 || (age >= 8 && item.rating >= 7.5)));
+    if (a.novelty === 'new') return !!item.year && age <= (loose ? 5 : 2);
     return true;
   }
   function onSubscriptions(item, subs) { return shared(item.platforms, subs) > 0; }
 
-  // Niveles de fallback: se relaja Q6 -> Q3 -> Q1. Tipo + familia + plataforma nunca se relajan.
+  // Niveles de fallback. Tipo, familia, plataforma y duración nunca se relajan.
+  // `fill`: el nivel completa hasta 8 (siempre con el ánimo de Q4 y la novedad de Q6 al menos
+  // en su rango cercano); los demás solo entran para llegar al mínimo de 3.
   var LEVELS = [
-    { novelty: true, attention: true, duration: true },
-    { novelty: false, attention: true, duration: true },
-    { novelty: false, attention: false, duration: true },
-    { novelty: false, attention: false, duration: false }
+    { mood: true, attention: true, novelty: 'strict', fill: true },
+    { mood: true, attention: true, novelty: 'loose', fill: true },
+    { mood: true, attention: false, novelty: 'loose', fill: true },
+    { mood: true, attention: false, novelty: false, fill: false },
+    { mood: false, attention: false, novelty: false, fill: false },
+    { mood: false, attention: false, novelty: false, tolerantDuration: true, fill: false }
   ];
 
   function passLevel(item, a, level, ref) {
     if (!passType(item, a) || !passFamily(item, a)) return false;
-    if (level.duration && !passDuration(item, a)) return false;
+    if (!passDuration(item, a, level.tolerantDuration)) return false;
+    if (level.mood && !passMood(item, a)) return false;
     if (level.attention && !passAttention(item, a)) return false;
-    if (level.novelty && !passNovelty(item, a, ref)) return false;
+    if (level.novelty && !passNovelty(item, a, ref, level.novelty === 'loose')) return false;
     return true;
   }
 
@@ -103,6 +113,8 @@
     }
     if (a.attention && item.attention === a.attention) s += W.attention;
     if (a.audience && a.audience !== 'familia' && has(item.audience, a.audience)) s += W.audience;
+    // Sin niños, lo infantil/familiar baja (TMDB marca mucha animación como "aventura").
+    if (a.audience && a.audience !== 'familia' && (has(item.tags, 'familia') || has(item.tags, 'kids'))) s += W.familyForAdults;
     if (a.novelty === 'classic' && item.year) {
       if (ref - item.year >= 15) s += W.novelty;
       else if (ref - item.year >= 8) s += W.novelty / 2;
@@ -110,6 +122,8 @@
       if (ref - item.year <= 2) s += W.novelty;
       else if (ref - item.year <= 4) s += W.novelty / 2;
     }
+    // "Un ratito": entre dos opciones, la más corta va primero.
+    if (a.time === 'short') s -= (item.durationMin || 0) / 60;
     s += W.rating * (item.rating || 0);
     s += feedbackScore(item, feedback, byId);
     return s;
@@ -136,20 +150,22 @@
     return out;
   }
 
-  // Relaja nivel por nivel hasta tener >= 3 (level = nivel donde se alcanzó). Después completa
-  // hasta `max` con los siguientes niveles, siempre detrás de los que cumplen más filtros.
+  // Relaja nivel por nivel (level = nivel donde se llegó a 3). Los niveles `fill` completan hasta
+  // `max`, siempre detrás de los que cumplen más filtros; los de último recurso solo llegan a 3.
   function carousel(items, a, feedback, byId, ref, inPool, max) {
     var out = [];
     var taken = {};
     var level = LEVELS.length - 1;
-    for (var l = 0; l < LEVELS.length && out.length < max; l++) {
+    for (var l = 0; l < LEVELS.length; l++) {
+      var cap = LEVELS[l].fill ? max : Math.max(out.length, MIN_RESULTS);
+      if (out.length >= cap) continue;
       var pool = [];
       for (var i = 0; i < items.length; i++) {
         var it = items[i];
         if (!taken[it.id] && inPool(it) && passLevel(it, a, LEVELS[l], ref)) pool.push(it);
       }
       var ranked = rank(pool, a, feedback, byId, ref);
-      for (var k = 0; k < ranked.length && out.length < max; k++) {
+      for (var k = 0; k < ranked.length && out.length < cap; k++) {
         out.push(ranked[k]);
         taken[ranked[k].id] = 1;
       }
@@ -191,20 +207,22 @@
     var byId = indexById(items);
     var ref = refYear(items);
 
-    function eligible(useDuration) {
+    function eligible(useDuration, useMood) {
       var out = [];
       for (var k = 0; k < items.length; k++) {
         var it = items[k];
         if (seen[it.id]) continue;
         if (!(it.source === 'totalplay' || onSubscriptions(it, subs))) continue;
         if (!passType(it, a) || !passFamily(it, a)) continue;
-        if (useDuration && !passDuration(it, a)) continue;
+        if (!passDuration(it, a, !useDuration)) continue;
+        if (useMood && !passMood(it, a)) continue;
         out.push(it);
       }
       return out;
     }
-    var pool = eligible(true);
-    if (pool.length < 3) pool = eligible(false);
+    var pool = eligible(true, true);
+    if (pool.length < 3) pool = eligible(true, false);
+    if (pool.length < 3) pool = eligible(false, false);
 
     // Tras "Ninguna": además de la penalización por moods/tags, se evita el mismo mood principal.
     var rejected = {};

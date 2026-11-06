@@ -1,10 +1,15 @@
 # Adivino de pelis
 
-Web app de TV para el STB Linux de Totalplay. Se usa solo con el control remoto (D-pad + OK + BACK). Respondes 6 preguntas rápidas con 2 pausas de "¿voy por buen camino?" y el adivino te recomienda qué ver en dos carruseles: **En tus plataformas** y **En el catálogo Totalplay**.
+Web app de TV para el STB Linux de Totalplay. Se usa con el control remoto (D-pad + OK + BACK), y también funciona en computadora y celular. Respondes 6 preguntas rápidas con 2 pausas de "¿voy por buen camino?" y el adivino te recomienda qué ver en dos carruseles: **En tus plataformas** y **En el catálogo Totalplay**.
 
-> **AVISO — Catálogo Totalplay SIMULADO.** No refleja disponibilidad real. Como TMDB no sabe qué hay en la programación ni en el On Demand de Totalplay, mientras no exista `src/config/totalplay-titles.csv` se marcan ~20 títulos con `source:'totalplay'` y `demo:true` solo para la demo.
+> **AVISO — Catálogo Totalplay SIMULADO.** No refleja disponibilidad real. Como TMDB no sabe qué hay en la programación ni en el On Demand de Totalplay, mientras no exista `src/config/totalplay-titles.csv` se marcan ~55 títulos con `source:'totalplay'` y `demo:true` solo para la demo.
 
 Es 100 % estática: un solo `index.html`, rutas relativas, sin build y sin servidor. Funciona desde cualquier subcarpeta, por ejemplo `https://prodmc.github.io/Adivino-de-pelis/`.
+
+## Pantallas y controles
+- **TV / STB y computadora:** el lienzo de 1920×1080 se escala para caber completo en la ventana (720p, 1080p, laptops). Se usa con flechas + Enter; en computadora también con clic y rueda del mouse.
+- **Celular:** layout fluido con scroll natural. Se usa tocando la pantalla, deslizando los carruseles, y el botón "atrás" del navegador funciona como BACK.
+- El mouse y el touch nunca se activan con el runtime de Totalplay, para que no peleen con el D-pad.
 
 ## Probar en local
 Usa un servidor HTTP real, nunca `file://`:

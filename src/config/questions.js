@@ -11,6 +11,7 @@
     },
     subscriptions: {
       title: '¿En qué plataformas buscamos?',
+      none: 'Ninguna plataforma',
       next: 'Continuar'
     },
     progress: '{n} de {total}', // agregado a confirmar

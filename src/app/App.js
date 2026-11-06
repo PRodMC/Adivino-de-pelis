@@ -42,9 +42,16 @@
     busy = false;
   }
 
+  // Fuera del STB, cada paso hacia adelante entra al historial: el botón "atrás" del
+  // celular/navegador funciona como BACK. En el STB no se toca el historial.
+  var useHistory = !TP.hasTotalplayRuntime() && !!(root.history && root.history.pushState);
+
   function go(index, opts) {
     opts = opts || {};
     clearTimers();
+    if (useHistory && !opts.back && !opts.instant && current && index !== current.index) {
+      try { root.history.pushState({ step: index }, ''); } catch (e) { /* sin historial */ }
+    }
     busy = true;
     var from = current ? TP.routes.steps[current.index] : null;
     var to = TP.routes.steps[index];
@@ -76,6 +83,17 @@
     noticeEl.className = 'notice t-caption is-on';
     if (noticeTimer) root.clearTimeout(noticeTimer);
     noticeTimer = root.setTimeout(function () { noticeEl.className = 'notice t-caption'; }, 2200);
+  }
+
+  // ---------- mouse / touch ----------
+  function pointerActivate(el) {
+    if (paused || busy || !current) return;
+    if (!TP.focus.set(el)) return;
+    TP.focus.activate();
+  }
+  function pointerMove(dir) {
+    if (paused || busy || !current) return;
+    TP.focus.move(dir);
   }
 
   // ---------- teclas ----------
@@ -153,6 +171,15 @@
     TP.network.start(TP.env.NETWORK_POLL_MS);
 
     doc.addEventListener('keydown', onKey, false);
+    TP.pointer.init(pointerActivate, pointerMove);
+    if (useHistory) {
+      root.addEventListener('popstate', function () {
+        if (!paused && current && !busy) back();
+      }, false);
+    }
+    TP.layout.init();
+    // Al cambiar entre escalado y fluido (p. ej. al girar el celular) se re-monta la pantalla.
+    TP.layout.onModeChange(function () { if (current) go(current.index, { instant: true }); });
 
     var start = state.step;
     var steps = TP.routes.steps;

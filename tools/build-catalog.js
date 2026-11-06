@@ -23,8 +23,8 @@ var POSTER_DIR = path.join(ROOT, 'posters');
 var API = 'https://api.themoviedb.org/3';
 var LANG = 'es-MX';
 var REGION = 'MX';
-var PER_TYPE = 40;          // ~80 títulos, 50/50
-var DEMO_TOTALPLAY = 20;    // subconjunto SIMULADO si no hay CSV
+var PER_TYPE = 75;          // ~150 títulos, 50/50
+var DEMO_TOTALPLAY = 55;    // subconjunto SIMULADO si no hay CSV
 var PAUSE_MS = 260;
 var POSTER_SIZE = 'w342';
 var SYNOPSIS_MAX = 140;
@@ -143,23 +143,27 @@ function discoverBuckets(providerMap) {
     var votes = t === 'movie' ? { 'vote_count.gte': 150 } : { 'vote_count.gte': 40 };
     Object.keys(TAX.MOOD_DISCOVER[t]).forEach(function (mood) {
       var g = TAX.MOOD_DISCOVER[t][mood];
-      if (g) buckets.push({ name: 'mood:' + mood, type: t, take: 7, params: q(Object.assign({ with_genres: g }, votes)) });
-      else buckets.push({ name: 'mood:' + mood, type: t, take: 7, keywordQueries: TAX.MOOD_KEYWORD_QUERIES[mood], params: q(votes) });
+      if (g) buckets.push({ name: 'mood:' + mood, type: t, take: 13, params: q(Object.assign({ with_genres: g }, votes)) });
+      else buckets.push({ name: 'mood:' + mood, type: t, take: 13, keywordQueries: TAX.MOOD_KEYWORD_QUERIES[mood], params: q(votes) });
     });
-    buckets.push({ name: 'familia', type: t, take: 6, params: q(Object.assign({ with_genres: t === 'movie' ? '10751' : '10751|10762' }, votes)) });
+    buckets.push({ name: 'familia', type: t, take: 12, params: q(Object.assign({ with_genres: t === 'movie' ? '10751' : '10751|10762' }, votes)) });
+    if (t === 'movie') {
+      // Pelis cortas: respaldo para "Un ratito" cuando casi no hay películas de <= 45 min.
+      buckets.push({ name: 'peli-corta', type: t, take: 10, params: q(Object.assign({ 'with_runtime.lte': 95 }, votes)) });
+    }
     if (t === 'tv') {
-      buckets.push({ name: 'corta30', type: t, take: 5, params: q(Object.assign({ 'with_runtime.lte': 30 }, votes)) });
-      buckets.push({ name: 'corta45', type: t, take: 4, params: q(Object.assign({ 'with_runtime.gte': 31, 'with_runtime.lte': 45 }, votes)) });
+      buckets.push({ name: 'corta30', type: t, take: 8, params: q(Object.assign({ 'with_runtime.lte': 30 }, votes)) });
+      buckets.push({ name: 'corta45', type: t, take: 8, params: q(Object.assign({ 'with_runtime.gte': 31, 'with_runtime.lte': 45 }, votes)) });
     }
     var classic = t === 'movie' ? { 'primary_release_date.lte': '2005-12-31' } : { 'first_air_date.lte': '2008-12-31' };
-    buckets.push({ name: 'clasico', type: t, take: 6, params: q(Object.assign({ sort_by: 'vote_count.desc' }, classic)) });
+    buckets.push({ name: 'clasico', type: t, take: 10, params: q(Object.assign({ sort_by: 'vote_count.desc' }, classic)) });
     // Un bucket por plataforma para que las de catálogo chico (ViX, Apple TV...) también aparezcan.
     PLATFORMS.list.forEach(function (pl) {
       var ids = providerIds.filter(function (id) { return providerMap[id] === pl.id; });
-      if (ids.length) buckets.push({ name: 'plataforma:' + pl.id, type: t, take: 3, params: q({ with_watch_providers: ids.join('|'), 'vote_count.gte': 10 }) });
+      if (ids.length) buckets.push({ name: 'plataforma:' + pl.id, type: t, take: 5, params: q({ with_watch_providers: ids.join('|'), 'vote_count.gte': 10 }) });
     });
     var fresh = t === 'movie' ? { 'primary_release_date.gte': isoDate(twoYearsAgo) } : { 'first_air_date.gte': isoDate(twoYearsAgo) };
-    buckets.push({ name: 'nuevo', type: t, take: 5, params: q(Object.assign({}, votes, fresh, { 'vote_count.gte': 20 })) });
+    buckets.push({ name: 'nuevo', type: t, take: 10, params: q(Object.assign({}, votes, fresh, { 'vote_count.gte': 20 })) });
   });
   return buckets;
 }
@@ -295,6 +299,7 @@ function toItem(d, type, providerMap, allowNoPlatform) {
       rating: Math.round((d.vote_average || 0) * 10) / 10,
       popularity: Math.round(d.popularity || 0),
       certification: cert ? cert.country + ':' + cert.cert : null,
+      genres: (d.genres || []).slice(0, 3).map(function (g) { return g.name; }),
       moods: moods,
       attention: attention,
       audience: audience,

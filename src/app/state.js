@@ -6,7 +6,7 @@
   var MAX_AGE_MS = 60 * 60 * 1000;
 
   function fresh() {
-    return { step: 0, subs: [], answers: {}, feedback: [], covers: [], results: null };
+    return { step: 0, subs: [], noPlatforms: false, answers: {}, feedback: [], covers: [], results: null };
   }
 
   TP.state = {
@@ -23,7 +23,7 @@
     save: function (s) {
       try {
         root.localStorage.setItem(KEY, JSON.stringify({
-          at: new Date().getTime(), step: s.step, subs: s.subs, answers: s.answers,
+          at: new Date().getTime(), step: s.step, subs: s.subs, noPlatforms: s.noPlatforms, answers: s.answers,
           feedback: s.feedback, covers: s.covers
         }));
       } catch (e) { /* sin storage: se ignora */ }
@@ -43,6 +43,7 @@
         var s = fresh();
         s.step = d.step || 0;
         s.subs = d.subs || [];
+        s.noPlatforms = !!d.noPlatforms;
         s.answers = d.answers || {};
         s.feedback = d.feedback || [];
         s.covers = d.covers || [];

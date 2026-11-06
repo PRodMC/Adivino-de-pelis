@@ -31,7 +31,8 @@ var LOW_ATTENTION = { 35: 1, 16: 1, 10764: 1, 10751: 1, 10767: 1, 10762: 1 };
 var HIGH_ATTENTION = { 18: 1, 9648: 1, 53: 1, 878: 1, 10765: 1, 10752: 1, 10768: 1 };
 
 // Certificaciones aptas para familia (spec §4.1).
-var FAMILY_CERTS = { MX: ['A', 'AA', 'B'], US: ['G', 'PG', 'TV-Y', 'TV-G'] };
+// B en México es 12+: se excluye para que "En familia (hay niños)" sea de verdad apto para niños.
+var FAMILY_CERTS = { MX: ['AA', 'A'], US: ['G', 'PG', 'TV-Y', 'TV-Y7', 'TV-G'] };
 var KIDS_ONLY_CERTS = ['TV-Y'];
 var KIDS_GENRES = { 10762: 1 };
 

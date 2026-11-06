@@ -35,9 +35,10 @@
       var railB = TP.ui.carousel({
         id: 'rail-b', title: c.totalplay, items: res.totalplay, emptyText: c.empty,
         platformLabel: function () { return TP.platforms.nameOf('totalplay'); },
-        onActivate: openItem, later: ctx.later, revealCount: 4, revealDelay: 480
+        onActivate: openItem, later: ctx.later, revealCount: 4, revealDelay: state.noPlatforms ? 0 : 480
       });
-      content.appendChild(railA.el);
+      // Con "Ninguna plataforma" solo se muestra el catálogo Totalplay.
+      if (!state.noPlatforms) content.appendChild(railA.el);
       content.appendChild(railB.el);
 
       var again = TP.ui.button(c.again, function () {
@@ -51,8 +52,9 @@
 
       var offsetY = 0;
       function scrollTo(section) {
+        if (TP.layout.isFluid()) { if (section === again) TP.ui.scrollIntoView(again); return; }
         var max = Math.max(0, content.offsetHeight - VIEW_H);
-        var target = section === railA.el ? 0 : Math.min(section.offsetTop, max);
+        var target = section === content.firstChild ? 0 : Math.min(section.offsetTop, max);
         if (section === again) target = max;
         if (target !== offsetY) {
           offsetY = target;

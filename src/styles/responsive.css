@@ -1,0 +1,144 @@
+/* Modo fluido (celular / ventana angosta). Solo aplica con html.layout-fluid, que
+ * src/ui/layout.js nunca activa en el STB: ahí sigue mandando el lienzo 1920x1080 de base.css.
+ * Tamaños con clamp()/vw (regla R5). El mínimo de 28 px es regla de TV a 3 m, no de celular. */
+
+.layout-fluid, .layout-fluid body {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.layout-fluid #app {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-transform: none !important;
+  transform: none !important;
+}
+.layout-fluid .screen {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  padding: clamp(24px, 7vw, 56px) clamp(16px, 5vw, 48px);
+}
+.layout-fluid #sweep { position: fixed; width: 100%; height: 100%; }
+.layout-fluid .notice { position: fixed; right: 16px; bottom: 16px; left: 16px; text-align: center; }
+.layout-fluid .net-status { position: fixed; right: 16px; top: 12px; }
+
+/* Tipografía fluida (mismos 6 roles, 2 pesos) */
+.layout-fluid .t-display  { font-size: clamp(40px, 11vmin, 96px); line-height: 1.05; letter-spacing: -1px; }
+.layout-fluid .t-question { font-size: clamp(28px, 7.6vmin, 72px); line-height: 1.12; }
+.layout-fluid .t-title    { font-size: clamp(22px, 6vmin, 48px);   line-height: 1.15; }
+.layout-fluid .t-option   { font-size: clamp(18px, 4.8vmin, 36px); line-height: 1.2; }
+.layout-fluid .t-body     { font-size: clamp(16px, 4vmin, 28px);   line-height: 1.4; }
+.layout-fluid .t-caption  { font-size: clamp(13px, 3.4vmin, 22px); line-height: 1.35; }
+
+/* Foco: más discreto (los elementos ocupan todo el ancho) pero igual de visible */
+.layout-fluid .btn.is-focused, .layout-fluid .option.is-focused, .layout-fluid .tile.is-focused {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 8px var(--paper);
+}
+.layout-fluid .btn { padding: 14px 32px; }
+
+/* Bienvenida */
+.layout-fluid .welcome__body { min-height: 60vh; }
+.layout-fluid .welcome__subtitle { margin-bottom: 32px; }
+.layout-fluid .welcome__attribution { margin-top: 32px; }
+
+/* Suscripciones: 2 columnas, "Ninguna plataforma" a todo lo ancho */
+.layout-fluid .subs__title { margin-bottom: 24px; }
+.layout-fluid .subs__grid { margin-left: -12px; }
+.layout-fluid .tile {
+  width: calc(50% - 12px);
+  height: auto;
+  min-height: 84px;
+  margin: 0 0 12px 12px;
+  padding: 16px 18px;
+  border-radius: 24px;
+  border-width: 3px;
+}
+.layout-fluid .tile--none { width: calc(100% - 12px); }
+.layout-fluid .subs__footer { margin-top: 24px; }
+
+/* Preguntas: opciones apiladas a todo lo ancho */
+.layout-fluid .question__reaction { margin-top: 16px; min-height: 1.2em; }
+.layout-fluid .question__options {
+  margin: 24px 0 0;
+  -webkit-flex-direction: column; flex-direction: column;
+}
+.layout-fluid .option,
+.layout-fluid .question__options--wrap .option {
+  -webkit-flex: 0 0 auto; flex: 0 0 auto;
+  width: 100%;
+  min-height: 72px;
+  margin: 0 0 12px;
+  padding: 18px 22px;
+  border-radius: 24px;
+  border-width: 3px;
+  -webkit-align-items: center; align-items: center;
+}
+
+/* Checkpoint: 3 portadas en fila, proporción 2:3 */
+.layout-fluid .halo { left: -10%; top: 20%; width: 120%; height: 60%; }
+.layout-fluid .checkpoint__covers { margin-top: 24px; }
+.layout-fluid .cover { width: 30%; margin-right: 5%; }
+.layout-fluid .cover:last-child { margin-right: 0; }
+.layout-fluid .cover__card { width: 100%; height: 0; padding-top: 150%; border-radius: 14px; border-width: 3px; }
+.layout-fluid .cover.is-focused .cover__card {
+  -webkit-transform: translateY(-6px) scale(1.04);
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 0 0 3px var(--night), 0 0 0 6px var(--gold);
+}
+.layout-fluid .cover__title { margin-top: 10px; }
+.layout-fluid .checkpoint__none { margin-top: 32px; }
+.layout-fluid .star8, .layout-fluid .star8:before, .layout-fluid .star8:after { width: 40px; height: 40px; }
+.layout-fluid .star8 { margin: -20px 0 0 -20px; }
+.layout-fluid .flip--back:before { left: 10px; top: 10px; right: 10px; bottom: 10px; border-width: 2px; border-radius: 8px; }
+.layout-fluid .poster-art { padding: 10px; }
+.layout-fluid .poster-art__shape { width: 40%; height: 0; padding-bottom: 40%; border-width: 10px; right: -12%; bottom: -8%; }
+
+/* Pensando */
+.layout-fluid .thinking__body { min-height: 70vh; }
+.layout-fluid .dots { margin-top: 32px; height: 28px; }
+.layout-fluid .dot { width: 18px; height: 18px; margin-right: 12px; }
+
+/* Resultados: scroll vertical de página y carruseles con scroll horizontal nativo (swipe) */
+.layout-fluid .results__viewport { height: auto; overflow: visible; margin: 0; }
+.layout-fluid .results__content {
+  padding: 0;
+  -webkit-transform: none !important;
+  transform: none !important;
+}
+.layout-fluid .rail { padding-top: 8px; margin-bottom: 24px; }
+.layout-fluid .rail__title { margin-bottom: 8px; }
+.layout-fluid .rail__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 calc(-1 * clamp(16px, 5vw, 48px));
+  padding: 12px clamp(16px, 5vw, 48px) 12px;
+}
+.layout-fluid .rail__track { -webkit-transform: none !important; transform: none !important; }
+.layout-fluid .card { width: clamp(150px, 44vw, 260px); margin-right: 16px; }
+.layout-fluid .card__poster { width: 100%; height: 0; padding-bottom: 150%; border-radius: 14px; }
+.layout-fluid .card.is-focused .card__poster {
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+  box-shadow: 0 0 0 3px var(--night), 0 0 0 6px var(--paper);
+}
+.layout-fluid .card__title { margin-top: 10px; max-height: 2.4em; }
+.layout-fluid .card__meta { margin-top: 4px; max-height: 1.35em; }
+.layout-fluid .card__desc { margin-top: 6px; max-height: 4.05em; }
+.layout-fluid .results__again { margin: 8px 0 24px; }
+
+/* Celular en horizontal: menos alto disponible */
+@media (orientation: landscape) {
+  .layout-fluid .cover { width: 22%; margin-right: 4%; }
+  .layout-fluid .card { width: clamp(150px, 26vw, 240px); }
+  .layout-fluid .option { min-height: 56px; padding: 12px 18px; }
+}

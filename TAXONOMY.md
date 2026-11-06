@@ -27,8 +27,8 @@ Lo decide el **género principal**: el primero de la lista que esté en una de l
 - Si no está en ninguna: `high`
 
 ## audience
-- `familia`: solo con certificación apta. MX: A, AA, B. US (respaldo): G, PG, TV-Y, TV-G. Sin certificación no se marca familia (criterio conservador).
-  - Ojo: en México **B** es para 12 años en adelante. Se incluye porque así lo pide la especificación; quitarlo de `FAMILY_CERTS.MX` lo vuelve más estricto.
+- `familia`: solo con certificación apta para niños. MX: AA, A. US (respaldo): G, PG, TV-Y, TV-Y7, TV-G. Sin certificación no se marca familia (criterio conservador).
+  - **B** (México, 12+) ya no cuenta como familiar: "En familia (hay niños)" debe ser de verdad apto para niños.
 - `pareja`: Romance, Drama o Telenovela
 - `amigos`: Comedia, Acción, Acción y Aventura, Terror o Aventura
 - `solo`: siempre, salvo contenido infantil exclusivo (género Kids o certificación TV-Y)
@@ -38,11 +38,11 @@ Lo decide el **género principal**: el primero de la lista que esté en una de l
 - Serie: `episode_run_time[0]` o, si falta, `last_episode_to_air.runtime`
 - Si no hay duración, el título se descarta.
 
-## Selección (~80 títulos, 40 películas / 40 series)
+## Selección (~150 títulos, 75 películas / 75 series)
 `/discover` con `watch_region=MX`, `with_watch_monetization_types=flatrate` y las plataformas objetivo, ordenado por popularidad. Hay un bucket por:
 - cada mood
 - familia
-- series cortas (≤ 30 y 31–45 min)
+- series cortas (≤ 30 y 31–45 min) y películas cortas (≤ 95 min)
 - clásicos (por número de votos, antes de 2005/2008)
 - novedades (últimos 2 años)
 - cada plataforma, para que ViX y Apple TV también aparezcan

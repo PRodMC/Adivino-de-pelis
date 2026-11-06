@@ -5,7 +5,7 @@
   var h = function () { return TP.ui.h.apply(null, arguments); };
 
   var VIEW_W = 1728;   // ancho útil (zona segura)
-  var PITCH = 360;     // 320 de tarjeta + 40 de margen
+  var PITCH = 340;     // 300 de tarjeta + 40 de margen
   var MARGIN = 2;      // tarjetas extra a cada lado con imagen
 
   TP.ui.carousel = function (opts) {
@@ -39,11 +39,16 @@
     el.appendChild(viewport);
 
     function updateImages() {
+      // Fluido (celular): scroll nativo y pocas tarjetas (máx. 8): se cargan todas.
+      if (TP.layout.isFluid()) {
+        for (var f = 0; f < cards.length; f++) TP.ui.attachImage(cards[f].__front, cards[f].__item, 300, 450);
+        return;
+      }
       var first = Math.floor(-offset / PITCH);
       var last = first + Math.ceil(VIEW_W / PITCH) - 1;
       for (var k = 0; k < cards.length; k++) {
         var c = cards[k];
-        if (k >= first - MARGIN && k <= last + MARGIN) TP.ui.attachImage(c.__front, c.__item, 320, 480);
+        if (k >= first - MARGIN && k <= last + MARGIN) TP.ui.attachImage(c.__front, c.__item, 300, 450);
         else TP.ui.releaseImage(c.__front);
       }
     }
@@ -61,8 +66,9 @@
       cards: cards,
       owns: function (node) { return node && node.__index !== undefined && cards[node.__index] === node; },
       onFocus: function (card) {
+        if (TP.layout.isFluid()) { TP.ui.scrollIntoView(card); return; }
         var left = card.__index * PITCH;
-        var right = left + 320;
+        var right = left + 300;
         if (left + offset < 0) setOffset(-left);
         else if (right + offset > VIEW_W) setOffset(VIEW_W - right);
       }

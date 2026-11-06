@@ -18,8 +18,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  width: 1920px;
-  height: 1080px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background: var(--ink);
   color: var(--paper);
@@ -39,12 +39,16 @@ html, body {
 h1, h2, p { margin: 0; }
 
 /* ---------- Escenario ---------- */
+/* Lienzo TV fijo 1920x1080. src/ui/layout.js lo escala para caber en cualquier pantalla. */
 #app {
-  position: relative;
+  position: absolute;
+  left: 0; top: 0;
   width: 1920px;
   height: 1080px;
   overflow: hidden;
   background: var(--ink);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 .screen {
   position: absolute;
@@ -142,12 +146,12 @@ h1, h2, p { margin: 0; }
 .subs__grid {
   display: -webkit-box; display: -webkit-flex; display: flex;
   -webkit-flex-wrap: wrap; flex-wrap: wrap;
-  margin: 0 0 0 -24px;
+  margin: 0 0 0 -40px;
 }
 .tile {
-  width: 408px;
+  width: 402px;
   height: 200px;
-  margin: 0 0 var(--s3) var(--s3);
+  margin: 0 0 32px var(--s4);
   border-radius: var(--radius-card);
   border-color: var(--tile);
   padding: var(--s4);
@@ -160,6 +164,7 @@ h1, h2, p { margin: 0; }
   -webkit-transform: scale(1.08);
   transform: scale(1.08);
 }
+.tile.tile--none { --tile: var(--paper); }
 .subs__footer { margin-top: auto; }
 
 /* Rotación de acentos (tarjetas de plataforma/resultado) */
@@ -199,12 +204,12 @@ h1, h2, p { margin: 0; }
   margin-top: auto;
   display: -webkit-box; display: -webkit-flex; display: flex;
   -webkit-flex-wrap: wrap; flex-wrap: wrap;
-  margin-left: -24px;
+  margin-left: -40px;
 }
 .option {
   -webkit-box-flex: 1; -webkit-flex: 1 1 0; flex: 1 1 0;
   min-height: 200px;
-  margin: var(--s3) 0 0 var(--s3);
+  margin: var(--s4) 0 0 var(--s4);
   padding: var(--s4);
   border-radius: var(--radius-card);
   display: -webkit-box; display: -webkit-flex; display: flex;
@@ -212,7 +217,7 @@ h1, h2, p { margin: 0; }
 }
 .question__options--wrap .option {
   -webkit-flex: 0 0 auto; flex: 0 0 auto;
-  width: 560px;
+  width: 549px;
 }
 .option.is-chosen { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
@@ -360,10 +365,10 @@ h1, h2, p { margin: 0; }
 .rail__empty { color: var(--mute); padding: var(--s4) 0; }
 .card {
   display: inline-block; vertical-align: top; white-space: normal;
-  width: 320px; margin-right: var(--s4);
+  width: 300px; margin-right: var(--s4);
 }
 .card__poster {
-  width: 320px; height: 480px; position: relative; overflow: hidden;
+  width: 300px; height: 450px; position: relative; overflow: hidden;
   border-radius: var(--radius-poster);
   -webkit-transition: -webkit-transform 150ms var(--ease-out);
   transition: transform 150ms var(--ease-out);
@@ -372,9 +377,10 @@ h1, h2, p { margin: 0; }
   -webkit-transform: scale(1.08); transform: scale(1.08);
   box-shadow: 0 0 0 6px var(--night), 0 0 0 12px var(--paper);
 }
-.card__title { margin-top: var(--s3); max-height: 104px; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word; }
+.card__title { margin-top: var(--s3); max-height: 104px; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }
 .card.is-focused .card__title { color: var(--gold); }
-.card__meta { color: var(--mute); margin-top: var(--s1); max-height: 88px; overflow: hidden; }
+.card__meta { color: var(--mute); margin-top: var(--s1); max-height: 36px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.card__desc { margin-top: var(--s2); max-height: 108px; overflow: hidden; }
 .results__again { margin: var(--s2) 0 var(--s4); }
 
 /* Aviso discreto (ficha no disponible / sin red). Sin foco. */

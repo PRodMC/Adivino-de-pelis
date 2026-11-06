@@ -104,6 +104,14 @@ test('el mood de Q4 pesa más que lo demás', function () {
   var r = R.recommend({ type: 'any', time: 'any', mood: 'miedito', attention: 'low' }, ALL_SUBS, FIX);
   assert.strictEqual(r.platforms[0].moods[0], 'miedito');
 });
+test('sin niños, lo familiar queda detrás de lo demás con el mismo ánimo', function () {
+  var cat = [mk({ id: 'kid', title: 'A kids', moods: ['adrenalina'], tags: ['animación', 'familia'], rating: 9 }),
+    mk({ id: 'adult', title: 'Z adult', moods: ['adrenalina'], tags: ['acción'], rating: 7 })];
+  var r = R.recommend({ type: 'movie', time: 'any', mood: 'adrenalina', audience: 'pareja' }, ['netflix'], cat);
+  assert.deepStrictEqual(ids(r.platforms), ['adult', 'kid']);
+  var f = R.recommend({ type: 'movie', time: 'any', mood: 'adrenalina', audience: 'solo' }, ['netflix'], cat);
+  assert.strictEqual(f.platforms[0].id, 'adult');
+});
 test('desempate estable por título', function () {
   var cat = [mk({ id: 'z', title: 'Zeta' }), mk({ id: 'b', title: 'Beta' }), mk({ id: 'a', title: 'Alfa' })];
   var r = R.recommend({ type: 'movie', time: 'any' }, ['netflix'], cat);
@@ -114,7 +122,7 @@ test('desempate estable por título', function () {
 
 // ---------- fallback ----------
 console.log('Fallback');
-test('relaja Q6 -> Q3 -> Q1 cuando hay < 3 resultados', function () {
+test('relaja Q6 -> Q3 y al final da un margen acotado de duración cuando hay < 3', function () {
   // Solo existe 1 serie "nueva y de atención alta y corta" en netflix: debe relajar hasta tener ≥ 3.
   var cat = [
     mk({ id: 'f1', type: 'series', dur: 30, attention: 'high', year: 2024 }),
@@ -123,9 +131,46 @@ test('relaja Q6 -> Q3 -> Q1 cuando hay < 3 resultados', function () {
     mk({ id: 'f4', type: 'movie', dur: 30, attention: 'high', year: 2024 })
   ];
   var r = R.recommend({ type: 'series', time: 'short', attention: 'high', novelty: 'new' }, ['netflix'], cat);
-  assert.strictEqual(r.relaxLevel.platforms, 3);
+  assert.strictEqual(r.relaxLevel.platforms, 5);
   assert.deepStrictEqual(ids(r.platforms).sort(), ['f1', 'f2', 'f3']);
   assert.strictEqual(r.platforms[0].id, 'f1', 'el que cumple todo va primero');
+});
+test('el ánimo de Q4 se respeta mientras haya al menos 3 títulos con ese ánimo', function () {
+  var cat = [];
+  for (var i = 0; i < 4; i++) cat.push(mk({ moods: ['miedito'], tags: ['terror'], attention: 'low' }));
+  for (var j = 0; j < 6; j++) cat.push(mk({ moods: ['reir'], tags: ['comedia'], attention: 'high', rating: 9 }));
+  var r = R.recommend({ type: 'movie', time: 'any', mood: 'miedito', attention: 'high' }, ['netflix'], cat);
+  assert.strictEqual(r.platforms.length, 4, 'no debe rellenar con otro ánimo');
+  r.platforms.forEach(function (it) { assert.ok(it.moods.indexOf('miedito') !== -1, it.id); });
+});
+test('"Algo recién salido" no se rellena con títulos viejos (ni "clásico" con estrenos)', function () {
+  var cat = [];
+  for (var i = 0; i < 3; i++) cat.push(mk({ year: 2025 }));
+  for (var j = 0; j < 6; j++) cat.push(mk({ year: 1999, rating: 9 }));
+  var r = R.recommend({ type: 'movie', time: 'any', mood: 'reir', novelty: 'new' }, ['netflix'], cat);
+  r.platforms.forEach(function (it) { assert.strictEqual(it.year, 2025, it.id); });
+  var c = R.recommend({ type: 'movie', time: 'any', mood: 'reir', novelty: 'classic' }, ['netflix'], cat);
+  c.platforms.forEach(function (it) { assert.strictEqual(it.year, 1999, it.id); });
+});
+test('la duración nunca se relaja más allá del margen (normal <= 150, ratito <= 100)', function () {
+  var cat = [mk({ id: 'l1', dur: 200 }), mk({ id: 'l2', dur: 180 }), mk({ id: 'n1', dur: 120 }), mk({ id: 'n2', dur: 149 })];
+  var r = R.recommend({ type: 'movie', time: 'normal', mood: 'reir' }, ['netflix'], cat);
+  assert.deepStrictEqual(ids(r.platforms).sort(), ['n1', 'n2']);
+  var r2 = R.recommend({ type: 'movie', time: 'short' }, ['netflix'], cat);
+  assert.deepStrictEqual(r2.platforms, []);
+});
+test('"Ninguna plataforma": sin carrusel de plataformas, solo Totalplay', function () {
+  var r = R.recommend({ type: 'any', time: 'any', mood: 'reir' }, [], FIX);
+  assert.deepStrictEqual(r.platforms, []);
+  assert.ok(r.totalplay.length > 0);
+  r.totalplay.forEach(function (it) { assert.strictEqual(it.source, 'totalplay'); });
+  var c = R.pickCheckpointCovers({ type: 'any', time: 'any' }, [], FIX, [], []);
+  c.forEach(function (it) { assert.strictEqual(it.source, 'totalplay', it.id); });
+});
+test('C2 respeta el ánimo elegido en Q4 cuando hay suficientes portadas', function () {
+  var c = R.pickCheckpointCovers({ type: 'any', time: 'any', mood: 'miedito' }, ALL_SUBS, FIX, [], []);
+  assert.strictEqual(c.length, 3);
+  c.forEach(function (it) { assert.ok(it.moods.indexOf('miedito') !== -1, it.id + ' ' + it.moods); });
 });
 test('conserva tipo + familia + plataforma al relajar', function () {
   var r = R.recommend({ type: 'movie', time: 'short', attention: 'high', novelty: 'new', audience: 'familia' }, ['disney'], FIX);
@@ -196,8 +241,8 @@ console.log('Snapshot real (src/config/catalog.generated.js)');
 global.window = {};
 require(path.join('..', 'src/config/catalog.generated.js'));
 var CAT = global.window.TP_CATALOG;
-test('el snapshot tiene ~80 títulos y ninguno trae la key de TMDB', function () {
-  assert.ok(CAT.items.length >= 60, CAT.items.length);
+test('el snapshot tiene ~150 títulos y ninguno trae la key de TMDB', function () {
+  assert.ok(CAT.items.length >= 120, CAT.items.length);
   var raw = JSON.stringify(CAT);
   assert.ok(raw.indexOf('api_key') === -1 && raw.indexOf('Bearer') === -1);
 });
@@ -207,7 +252,7 @@ test('cualquier combinación respeta los filtros duros y nunca da plataformas no
     mood: ['reir', 'emocionarme', 'adrenalina', 'pensar', 'miedito'], audience: ['solo', 'pareja', 'amigos', 'familia'],
     novelty: ['classic', 'new', 'any']
   };
-  var subsSets = [['netflix'], ['vix'], ['appletv', 'paramount'], ['netflix', 'max', 'prime', 'disney']];
+  var subsSets = [[], ['netflix'], ['vix'], ['appletv', 'paramount'], ['netflix', 'max', 'prime', 'disney']];
   var count = 0;
   opts.time.forEach(function (time) { opts.type.forEach(function (type) { opts.attention.forEach(function (attention) {
     opts.mood.forEach(function (mood) { opts.audience.forEach(function (audience) { opts.novelty.forEach(function (novelty) {
@@ -222,11 +267,28 @@ test('cualquier combinación respeta los filtros duros y nunca da plataformas no
           if (audience === 'familia') assert.ok(it.audience.indexOf('familia') !== -1);
         });
         r.totalplay.forEach(function (it) { assert.strictEqual(it.source, 'totalplay'); });
+        var cap = { short: 100, normal: 150 }[time];
+        r.platforms.concat(r.totalplay).forEach(function (it) {
+          if (cap) assert.ok(it.durationMin <= cap, it.id + ' ' + it.durationMin + ' > ' + cap);
+          if (audience === 'familia') assert.ok(/^(MX:(AA|A)|US:(G|PG|TV-Y|TV-Y7|TV-G))$/.test(it.certification), it.id + ' ' + it.certification);
+        });
         count++;
       });
     }); }); }); }); });
   });
   assert.ok(count > 1000);
+});
+test('en el snapshot, con 4 plataformas el ánimo coincide en >= 90 % de los resultados', function () {
+  var moods = ['reir', 'emocionarme', 'adrenalina', 'pensar', 'miedito'];
+  var hit = 0; var total = 0;
+  ['short', 'normal', 'any'].forEach(function (time) { ['movie', 'series', 'any'].forEach(function (type) {
+    moods.forEach(function (mood) {
+      var r = R.recommend({ time: time, type: type, mood: mood, attention: 'high', audience: 'solo', novelty: 'any' },
+        ['netflix', 'max', 'prime', 'disney'], CAT);
+      r.platforms.forEach(function (it) { total++; if (it.moods.indexOf(mood) !== -1) hit++; });
+    });
+  }); });
+  assert.ok(hit / total >= 0.9, Math.round(100 * hit / total) + ' %');
 });
 test('en el snapshot, C1 y C2 dan 3 portadas diversas y distintas', function () {
   var c1 = R.pickCheckpointCovers({ time: 'normal', type: 'movie' }, ['netflix', 'max'], CAT, [], []);

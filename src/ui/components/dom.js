@@ -60,6 +60,12 @@
 
   function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
 
+  // Solo en modo fluido (scroll nativo). Navegadores viejos: sin opciones.
+  function scrollIntoView(el) {
+    try { el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' }); }
+    catch (e) { try { el.scrollIntoView(false); } catch (e2) { /* sin soporte */ } }
+  }
+
   TP.ui.h = h;
   TP.ui.richText = richText;
   TP.ui.accentClass = accentClass;
@@ -67,4 +73,5 @@
   TP.ui.attachImage = attachImage;
   TP.ui.releaseImage = releaseImage;
   TP.ui.clear = clear;
+  TP.ui.scrollIntoView = scrollIntoView;
 })(this);
