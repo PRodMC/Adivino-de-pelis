@@ -112,6 +112,18 @@
       again: 'Volver a jugar',
       detailUnavailable: 'Ficha no disponible en esta demo'
     },
+    detail: {
+      watchOn: 'Ver en {p}',
+      back: 'Volver',
+      movie: 'Película',
+      series: 'Serie',
+      perEpisode: 'por episodio',
+      rating: 'Clasificación',
+      noRating: 'sin dato',
+      genre: 'Género',
+      loading: 'Te estamos llevando a {p}…',
+      demo: 'Disponible cuando se conecte la plataforma'
+    },
     network: {
       offline: 'Sin conexión'
     }

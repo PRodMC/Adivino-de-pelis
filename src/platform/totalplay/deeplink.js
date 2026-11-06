@@ -17,6 +17,21 @@
       TP.debug.log('openDetail sin detailUrl: ' + (item ? item.id + ' ' + item.title : '(sin item)'));
       if (onUnavailable) onUnavailable();
       return false;
+    },
+
+    // Abre el título en una plataforma concreta. BLOCKED: no hay formato de deep link ni para
+    // Totalplay ni para terceros; en esta demo nunca sale de la app (decisión confirmada) y
+    // llama onUnavailable() para el aviso. Cuando exista, vendrá en item.watchUrls[platformId].
+    openPlatform: function (item, platformId, onUnavailable) {
+      var url = item && item.watchUrls && item.watchUrls[platformId];
+      if (url) {
+        TP.debug.log('openPlatform ' + item.id + ' ' + platformId + ' -> ' + url);
+        root.location.href = url;
+        return true;
+      }
+      TP.debug.log('openPlatform sin URL (TBD): ' + (item ? item.id : '?') + ' ' + platformId);
+      if (onUnavailable) onUnavailable();
+      return false;
     }
   };
 })(this);

@@ -25,7 +25,7 @@
     var track = h('div', 'rail__track');
     for (var i = 0; i < opts.items.length; i++) {
       (function (item, idx) {
-        var card = TP.ui.contentCard(item, idx, opts.platformLabel(item), function () { opts.onActivate(item); });
+        var card = TP.ui.contentCard(item, idx, opts.platformLabel(item), function () { opts.onActivate(item, card); });
         card.id = opts.id + '-' + idx;
         card.__index = idx;
         cards.push(card);

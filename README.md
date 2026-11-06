@@ -10,6 +10,10 @@ Es 100 % estática: un solo `index.html`, rutas relativas, sin build y sin servi
 - **TV / STB y computadora:** el lienzo de 1920×1080 se escala para caber completo en la ventana (720p, 1080p, laptops). Se usa con flechas + Enter; en computadora también con clic y rueda del mouse.
 - **Celular:** layout fluido con scroll natural. Se usa tocando la pantalla, deslizando los carruseles, y el botón "atrás" del navegador funciona como BACK.
 - El mouse y el touch nunca se activan con el runtime de Totalplay, para que no peleen con el D-pad.
+- En resultados, OK (o tocar) en una tarjeta abre su **detalle**: descripción completa, género, clasificación y botones "Ver en <plataforma>". Al elegir uno aparece el loader "Te estamos llevando a…" y luego el aviso "Disponible cuando se conecte la plataforma" (el deep link sigue TBD; la demo no sale de la app). BACK o "Volver" regresa a los resultados.
+
+## Publicar una versión nueva
+En `index.html`, sube el número `?v=N` de los scripts y estilos en cada publicación. Así el navegador no mezcla archivos viejos de la caché de GitHub Pages con los nuevos.
 
 ## Probar en local
 Usa un servidor HTTP real, nunca `file://`:
@@ -69,7 +73,7 @@ tests/                  recommender.test.js
 ```
 
 ## Pendientes (TBD / BLOCKED)
-- Deep link a la ficha (Totalplay y plataformas): `deeplink.js` es un stub. Si el título no trae `detailUrl`, muestra "Ficha no disponible en esta demo".
+- Deep link a cada plataforma (Totalplay y terceros): `deeplink.openPlatform()` es un stub. Cuando exista el formato, la URL irá en `item.watchUrls[platformId]`.
 - Catálogo Totalplay real y feed/API de producción.
 - Carga de HTTPS de image.tmdb.org en el STB (certificados, allowlist, TLS).
 - Licencia de TMDB para uso comercial: la API gratuita es solo para uso no comercial.

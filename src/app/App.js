@@ -113,7 +113,7 @@
       case 'DOWN': TP.focus.move('down'); break;
       case 'OK': TP.focus.activate(); break;
       case 'BACK':
-        if (current.screen.onBack) current.screen.onBack(event);
+        if (current.screen.onBack) current.screen.onBack(event, false);
         else back(event);
         break;
     }
@@ -143,6 +143,12 @@
     go: go,
     notice: notice,
     lock: function () { busy = true; },
+    unlock: function () { busy = false; },
+    // Agrega una entrada al historial (solo web/celular) para que "atrás" cierre un panel.
+    pushHistory: function () {
+      if (!useHistory) return false;
+      try { root.history.pushState({ panel: true }, ''); return true; } catch (e) { return false; }
+    },
     state: null,   // se asigna en init
     catalog: null
   };
@@ -174,7 +180,9 @@
     TP.pointer.init(pointerActivate, pointerMove);
     if (useHistory) {
       root.addEventListener('popstate', function () {
-        if (!paused && current && !busy) back();
+        if (paused || !current || busy) return;
+        if (current.screen.onBack) current.screen.onBack(null, true);
+        else back();
       }, false);
     }
     TP.layout.init();

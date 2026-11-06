@@ -1,5 +1,6 @@
 /* 9. Resultados: 2 carruseles + Volver a jugar. Entre carruseles la vista se desplaza en vertical
- * por transform (decisión confirmada): la página nunca hace scroll real. */
+ * por transform (decisión confirmada): la página nunca hace scroll real.
+ * OK en una tarjeta abre el panel de detalle (components/detail.js); BACK o "Volver" lo cierra. */
 (function (root) {
   var TP = root.TP = root.TP || {};
   TP.screens = TP.screens || {};
@@ -13,8 +14,47 @@
       var state = ctx.state;
       var res = state.results || TP.recommender.recommend(state.answers, state.subs, ctx.catalog, []);
 
-      function openItem(item) {
-        TP.deeplink.openDetail(item, function () { ctx.notice(c.detailUnavailable); });
+      var LOADER_MS = 1800;
+      var detail = null;        // panel abierto
+      var detailCard = null;    // tarjeta de origen (el foco regresa ahí)
+      var detailInHistory = false;
+
+      function openItem(item, card) {
+        if (detail) return;
+        detailCard = card;
+        detail = TP.ui.detail({
+          host: el, item: item, fromPoster: card.__poster, subs: state.subs, later: ctx.later,
+          onWatch: function (pid, btn) { watch(item, pid, btn); },
+          onClose: function () { closeDetail(false); }
+        });
+        TP.focus.setScope(detail.el, detail.focus);
+        detailInHistory = ctx.pushHistory();
+      }
+
+      // "Ver en <plataforma>": loader y, como el deep link es TBD, aviso de demo sin salir de la app.
+      function watch(item, pid, btn) {
+        ctx.lock();
+        detail.showLoader(TP.platforms.nameOf(pid));
+        ctx.later(function () {
+          detail.hideLoader();
+          ctx.unlock();
+          TP.focus.set(btn);
+          TP.deeplink.openPlatform(item, pid, function () { ctx.notice(TP.copy.detail.demo); });
+        }, LOADER_MS);
+      }
+
+      function closeDetail(fromHistory) {
+        if (!detail) return;
+        // Si abrir el panel agregó una entrada al historial (web/celular), cerrar la consume.
+        if (!fromHistory && detailInHistory) { detailInHistory = false; root.history.back(); return; }
+        detailInHistory = false;
+        var closing = detail;
+        detail = null;
+        ctx.lock();
+        closing.close(function () {
+          TP.focus.setScope(el, detailCard);
+          ctx.unlock();
+        });
       }
       function subsLabel(item) {
         for (var i = 0; i < item.platforms.length; i++) {
@@ -65,7 +105,12 @@
       return {
         el: el,
         focus: railA.cards[0] || railB.cards[0] || again,
+        onBack: function (event, fromHistory) {
+          if (detail) closeDetail(fromHistory);
+          else ctx.back(event);
+        },
         onFocus: function (focused) {
+          if (detail) return;
           if (railA.owns(focused)) { railA.onFocus(focused); scrollTo(railA.el); }
           else if (railB.owns(focused)) { railB.onFocus(focused); scrollTo(railB.el); }
           else scrollTo(again);

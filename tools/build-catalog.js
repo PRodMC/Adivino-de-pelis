@@ -308,6 +308,7 @@ function toItem(d, type, providerMap, allowNoPlatform) {
       posterPath: d.poster_path,
       posterUrl: POSTER_MODE === 'local' ? 'posters/' + id + '.jpg' : 'https://image.tmdb.org/t/p/' + POSTER_SIZE + d.poster_path,
       synopsis: shortText(d.overview, SYNOPSIS_MAX),
+      overview: String(d.overview || '').replace(/\s+/g, ' ').trim(), // descripción completa (panel de detalle)
       detailUrl: null // TBD: formato de ficha (deep link) no definido
     }
   };
