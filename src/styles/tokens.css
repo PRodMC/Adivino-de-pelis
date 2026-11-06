@@ -1,0 +1,37 @@
+/* Tokens propios del proyecto (§5). Cero hex fuera de este archivo. */
+:root {
+  --ink: #0B0B0F;      /* fondo base y texto sobre colores claros */
+  --paper: #FFFFFF;    /* texto sobre fondo oscuro */
+  --mute: #B8B8C4;     /* texto secundario sobre oscuro (>= 4.5:1) */
+  --yellow: #FFD60A;
+  --pink: #FF3D81;
+  --cyan: #22D3EE;
+  --lime: #B6FF3B;
+  --violet: #8B6BFF;
+  --orange: #FF7A1A;
+  --radius-card: 40px;
+  --radius-pill: 999px;
+
+  /* Look mágico */
+  --night: #0A0620;
+  --night-2: #1A0F3D;
+  --night-3: #2A1A5E;  /* halo "encendido" cuando una portada tiene foco (cambio de clase, sin animar) */
+  --gold: #FFD36B;
+  --aurora: #8B6BFF;
+  --aurora-2: #22D3EE;
+
+  /* Layout 1920x1080 fijo */
+  --safe-x: 96px;
+  --safe-y: 54px;
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 40px; --s5: 64px; --s6: 96px;
+  --radius-poster: 24px;
+
+  /* Tipografía: 6 tamaños, 2 pesos */
+  --font: 'Montserrat', Arial, Helvetica, sans-serif;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Movimiento */
+  --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+}

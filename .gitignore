@@ -1,0 +1,6 @@
+.env
+node_modules/
+posters/
+.DS_Store
+.claude/
+tools/totalplay-report.txt
