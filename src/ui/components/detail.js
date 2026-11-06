@@ -32,7 +32,7 @@
   }
 
   /* opts: { host (pantalla), item, fromPoster (elemento de la tarjeta), subs, later,
-   *         onWatch(platformId, button), onClose() } */
+   *         onWatch(platformId, button), onClose(), extra: [{ label, onActivate }] (opcional, van primero) } */
   TP.ui.detail = function (opts) {
     var c = TP.copy.detail;
     var item = opts.item;
@@ -66,6 +66,12 @@
     var actions = h('div', 'detail__actions');
     var targets = watchTargets(item, opts.subs);
     var first = null;
+    var extra = opts.extra || [];
+    for (var x = 0; x < extra.length; x++) {
+      var eb = TP.ui.button(extra[x].label, extra[x].onActivate, 'detail__extra');
+      actions.appendChild(eb);
+      if (!first) first = eb;
+    }
     for (var t = 0; t < targets.length; t++) {
       (function (pid) {
         var btn = TP.ui.button(c.watchOn.replace('{p}', TP.platforms.nameOf(pid)), function () { opts.onWatch(pid, btn); }, 'detail__watch');
@@ -126,5 +132,57 @@
       },
       GROW_MS: GROW_MS
     };
+  };
+
+  /* Controlador compartido (resultados y checkpoints): abre/cierra el panel, mueve el foco
+   * dentro y fuera de él, maneja el historial (botón "atrás" en web/celular) y el loader. */
+  var LOADER_MS = 1800;
+  TP.ui.detailController = function (ctx, host) {
+    var panel = null;
+    var origin = null;      // tarjeta de origen: el foco regresa ahí
+    var inHistory = false;
+
+    function watch(item, pid, btn) {
+      ctx.lock();
+      panel.showLoader(TP.platforms.nameOf(pid));
+      ctx.later(function () {
+        if (panel) panel.hideLoader();
+        ctx.unlock();
+        TP.focus.set(btn);
+        // Deep link TBD: en la demo no sale de la app y muestra el aviso.
+        TP.deeplink.openPlatform(item, pid, function () { ctx.notice(TP.copy.detail.demo); });
+      }, LOADER_MS);
+    }
+
+    var api = {
+      isOpen: function () { return !!panel; },
+      // fromEl: tarjeta enfocada; posterEl: elemento desde el que "crece" el póster.
+      open: function (item, fromEl, posterEl, extra) {
+        if (panel) return;
+        origin = fromEl;
+        panel = TP.ui.detail({
+          host: host, item: item, fromPoster: posterEl, subs: ctx.state.subs, later: ctx.later, extra: extra,
+          onWatch: function (pid, btn) { watch(item, pid, btn); },
+          onClose: function () { api.close(false); }
+        });
+        TP.focus.setScope(panel.el, panel.focus);
+        inHistory = ctx.pushHistory();
+      },
+      // fromHistory: el cierre viene del botón "atrás" del navegador (popstate).
+      close: function (fromHistory) {
+        if (!panel) return;
+        // Si abrir agregó una entrada al historial, cerrar la consume (el popstate vuelve aquí).
+        if (!fromHistory && inHistory) { inHistory = false; root.history.back(); return; }
+        inHistory = false;
+        var closing = panel;
+        panel = null;
+        ctx.lock();
+        closing.close(function () {
+          TP.focus.setScope(host, origin);
+          ctx.unlock();
+        });
+      }
+    };
+    return api;
   };
 })(this);

@@ -114,6 +114,7 @@
     },
     detail: {
       watchOn: 'Ver en {p}',
+      pickThis: '¡Esta me late!',
       back: 'Volver',
       movie: 'Película',
       series: 'Serie',

@@ -14,48 +14,8 @@
       var state = ctx.state;
       var res = state.results || TP.recommender.recommend(state.answers, state.subs, ctx.catalog, []);
 
-      var LOADER_MS = 1800;
-      var detail = null;        // panel abierto
-      var detailCard = null;    // tarjeta de origen (el foco regresa ahí)
-      var detailInHistory = false;
-
-      function openItem(item, card) {
-        if (detail) return;
-        detailCard = card;
-        detail = TP.ui.detail({
-          host: el, item: item, fromPoster: card.__poster, subs: state.subs, later: ctx.later,
-          onWatch: function (pid, btn) { watch(item, pid, btn); },
-          onClose: function () { closeDetail(false); }
-        });
-        TP.focus.setScope(detail.el, detail.focus);
-        detailInHistory = ctx.pushHistory();
-      }
-
-      // "Ver en <plataforma>": loader y, como el deep link es TBD, aviso de demo sin salir de la app.
-      function watch(item, pid, btn) {
-        ctx.lock();
-        detail.showLoader(TP.platforms.nameOf(pid));
-        ctx.later(function () {
-          detail.hideLoader();
-          ctx.unlock();
-          TP.focus.set(btn);
-          TP.deeplink.openPlatform(item, pid, function () { ctx.notice(TP.copy.detail.demo); });
-        }, LOADER_MS);
-      }
-
-      function closeDetail(fromHistory) {
-        if (!detail) return;
-        // Si abrir el panel agregó una entrada al historial (web/celular), cerrar la consume.
-        if (!fromHistory && detailInHistory) { detailInHistory = false; root.history.back(); return; }
-        detailInHistory = false;
-        var closing = detail;
-        detail = null;
-        ctx.lock();
-        closing.close(function () {
-          TP.focus.setScope(el, detailCard);
-          ctx.unlock();
-        });
-      }
+      var detail = null; // TP.ui.detailController (se crea al tener la pantalla)
+      function openItem(item, card) { detail.open(item, card, card.__poster); }
       function subsLabel(item) {
         for (var i = 0; i < item.platforms.length; i++) {
           if (state.subs.indexOf(item.platforms[i]) !== -1) return TP.platforms.nameOf(item.platforms[i]);
@@ -64,6 +24,7 @@
       }
 
       var el = h('div', 'screen screen--night screen--results');
+      detail = TP.ui.detailController(ctx, el);
       TP.ui.starfield(el, false); // estático: el presupuesto de animación es para las cartas
       var viewport = h('div', 'results__viewport');
       var content = h('div', 'results__content');
@@ -106,11 +67,11 @@
         el: el,
         focus: railA.cards[0] || railB.cards[0] || again,
         onBack: function (event, fromHistory) {
-          if (detail) closeDetail(fromHistory);
+          if (detail.isOpen()) detail.close(fromHistory);
           else ctx.back(event);
         },
         onFocus: function (focused) {
-          if (detail) return;
+          if (detail.isOpen()) return;
           if (railA.owns(focused)) { railA.onFocus(focused); scrollTo(railA.el); }
           else if (railB.owns(focused)) { railB.onFocus(focused); scrollTo(railB.el); }
           else scrollTo(again);

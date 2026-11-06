@@ -1,5 +1,7 @@
-/* Checkpoint C1/C2 ("¿voy por buen camino?"): 3 portadas + "Ninguna". Las portadas son pista,
- * no resultado: no abren la ficha. Elegir/Ninguna se guarda como feedback para el recomendador. */
+/* Checkpoint C1/C2 ("¿voy por buen camino?"): 3 portadas + "Ninguna".
+ * OK en una portada abre su ficha (decisión confirmada); "¡Esta me late!" en la ficha cuenta como
+ * "voy bien" y sigue la trivia; "Volver" regresa a las portadas. "Ninguna" = "no por ahí".
+ * La elección se guarda como feedback para el recomendador. */
 (function (root) {
   var TP = root.TP = root.TP || {};
   TP.screens = TP.screens || {};
@@ -37,6 +39,7 @@
       }
 
       var el = h('div', 'screen screen--night screen--checkpoint');
+      var detail = TP.ui.detailController(ctx, el);
       var halo = h('div', 'halo');
       el.appendChild(halo);
       TP.ui.starfield(el, true);
@@ -45,7 +48,9 @@
       var row = h('div', 'checkpoint__covers');
       for (var k = 0; k < covers.length; k++) {
         (function (item, idx) {
-          var card = TP.ui.coverCard(item, idx, function () { answer(item.id); }, ctx.later);
+          var card = TP.ui.coverCard(item, idx, function () {
+            detail.open(item, card, card.firstChild, [{ label: TP.copy.detail.pickThis, onActivate: function () { answer(item.id); } }]);
+          }, ctx.later);
           row.appendChild(card);
         })(covers[k], k);
       }
@@ -63,7 +68,12 @@
       return {
         el: el,
         focus: row.firstChild || none,
+        onBack: function (event, fromHistory) {
+          if (detail.isOpen()) detail.close(fromHistory);
+          else ctx.back(event);
+        },
         onFocus: function (focused) {
+          if (detail.isOpen()) return;
           // El halo estático se aclara cambiando de clase (sin animar el gradiente).
           halo.className = 'halo' + (focused !== none ? ' is-lit' : '');
         }

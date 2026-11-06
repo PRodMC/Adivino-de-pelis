@@ -11,6 +11,7 @@ Es 100 % estática: un solo `index.html`, rutas relativas, sin build y sin servi
 - **Celular:** layout fluido con scroll natural. Se usa tocando la pantalla, deslizando los carruseles, y el botón "atrás" del navegador funciona como BACK.
 - El mouse y el touch nunca se activan con el runtime de Totalplay, para que no peleen con el D-pad.
 - En resultados, OK (o tocar) en una tarjeta abre su **detalle**: descripción completa, género, clasificación y botones "Ver en <plataforma>". Al elegir uno aparece el loader "Te estamos llevando a…" y luego el aviso "Disponible cuando se conecte la plataforma" (el deep link sigue TBD; la demo no sale de la app). BACK o "Volver" regresa a los resultados.
+- En los checkpoints, OK en una portada también abre su ficha, con un botón extra **"¡Esta me late!"** que cuenta como "voy bien" y sigue la trivia; "Volver" regresa a las portadas para elegir otra o "Ninguna".
 
 ## Publicar una versión nueva
 En `index.html`, sube el número `?v=N` de los scripts y estilos en cada publicación. Así el navegador no mezcla archivos viejos de la caché de GitHub Pages con los nuevos.
